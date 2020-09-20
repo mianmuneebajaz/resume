@@ -133,7 +133,6 @@
                         <h3 class="mb-0">Superior University</h3>
                         <div class="subheading mb-3">Bachelor of Science</div>
                         <div>Computer Science</div>
-                        <p>GPA: 3.1</p>
                     </div>
                     <div class="flex-shrink-0"><span class="text-primary">April 2015 - December 2019</span></div>
                 </div>
@@ -229,7 +228,8 @@
         <!-- Awards-->
         <section class="resume-section" id="cloud">
             <div class="resume-section-content">
-                <h2 class="mb-5">Knowledge Cloud</h2>
+                <h2>Knowledge Cloud</h2>
+                <div class="subheading ">Reload to generate new cloud :)</div>
                 <div style="height: 450px;" id="wordCloud1" ></div>
         </section>
     </div>
@@ -244,12 +244,11 @@
     <script src="js/scripts.js"></script>
     <script>
         $(function () {
-            var tags = ['C#','.NET','AJAX','SPA','DRY','SERVICES','APIS','VB.NET','WINDOWS FORM','SQL','TSQL','CLOUDFLARE','SWAGGER','FIDDLER','POSTMAN','NTIER',]
+            var tags = ['C#','.NET','AJAX','SPA','DRY','Restfull','APIs','VB.NET','Windows Form','SQL','TSQL','Cloudflare','Fiddler','Postman','NTIER','Premier Pro','Photoshop','After effects','Linux','Deployment','github','github pages','CrystalReports','SQL Profiler','Dependency Injection','Entity Framework','Identity Framework','2FA','Asynchronous Programming','Dev Express','Stored Procedures']
             var data = [];
-            for (let index = 0; index < tags.length; index++) {
-                const element = tags[index];
+            tags.forEach(element => {
                 data.push({word: element, weight: Math.floor((Math.random() * 100) + 50) });
-            }
+            });
             $("#wordCloud1").jQWCloud({
                 words: data,
                 minFont: 10,
@@ -259,20 +258,20 @@
             });
         });
         var dev_signature=`
-              :+shdmNNNNmdhs+:                
+                :+shdmNNNNmdhs+:                
             -sdMMMMMMMMMMMMMMMMMMds-             
           omMMMMMMMMMMMMMMMMMMMMMMMMmo          
         oNMMMMMMMMMMMMMMMMMMMMMMMMMMMMNo        
       -mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm-       
-      /MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM/      
-    :MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM:     
-    NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN    
-    oMMMMMMMMMMMMNMMMMMMMMMMMMMNMMMMMMMMMMMMMo    
-    dMMMMMMMMMMMd :MMMMMMMMMMM+ yMMMMMMMMMMMMd    
-    NMMMMMMMMMMMy .dmymMMMNydd- oMMMMMMMMMMMMN    
-    dMMMMMMMMMMMMy:..-sMMMy:..-sMMMMMMMMMMMMMd    
-    oMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMo    
-    NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN    
+      /MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM      
+    :MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN     
+    NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNN    
+   oMMMMMMMMMMMMNMMMMMMMMMMMMMNMMMMMMMMMMMMMoN    
+   dMMMMMMMMMMMd :MMMMMMMMMMM+ yMMMMMMMMMMMMdN    
+   NMMMMMMMMMMMy .dmymMMMNydd- oMMMMMMMMMMMMNN    
+   dMMMMMMMMMMMMy:..-sMMMy:..-sMMMMMMMMMMMMMdN   
+   oMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMoN    
+    NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNN    
     :MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM:     
       /MMMMMMMMMMMM/\/\/\/\/\/\MMMMMMMMMMMM/      
       -mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm-       
