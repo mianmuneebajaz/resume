@@ -1,0 +1,6 @@
+C# 
+VB.NET
+Windows Form
+PHP
+SQL/TSQL
+Restful Services (APIs)

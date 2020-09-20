@@ -10146,3 +10146,26 @@ body::-webkit-scrollbar-track {
             outline: 1px solid #d48a6e;
           }
 /* custom scrollbar */
+
+.skills-list { 
+  display:inline;
+  margin-left: auto;
+  user-select:none;
+}
+
+.skills-list li {
+    margin-bottom: 5px;
+    border: 1px solid #c7c7cc;
+    border-radius: 2px;
+    padding: 5px;
+    display: inline;
+}
+::-moz-selection { 
+  color: white;
+  background: #d48a6e;
+}
+
+::selection {
+  color: white;
+  background: #d48a6e;
+}
