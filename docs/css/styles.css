@@ -10157,7 +10157,7 @@ body::-webkit-scrollbar-track {
     margin-bottom: 5px;
     border: 1px solid #c7c7cc;
     border-radius: 2px;
-    padding: 5px;
+    padding: 5px; 
     display: inline;
 }
 ::-moz-selection { 
