@@ -71,16 +71,6 @@
                     He feel comfortable to work on any Application layer, from database to services to user interfaces
                     Supporting legacy systems with backups of all cases, Analysis and design of databases and user
                     interfaces, designing/improving Software architecture. He loves doing <b>refactoring</b> aswell.
-                    <!-- <ul class="skills-list list-inline text-uppercase">
-                    <li>C#</li>
-                    <li>VB.NET</li>
-                    <li>Windows Form</li>
-                    <li>PHP</li>
-                    <li>JQuery</li>
-                    <li>SQL/TSQL</li>
-                    <li>Restful Services (APIs)</li>
-                    <li>Github</li>
-                </ul> -->
                 </p>
                 <div class="social-icons">
                     <a class="social-icon" onclick="window.open('https://www.linkedin.com/in/mianmuneebajaz/')"
@@ -160,85 +150,7 @@
             <div class="resume-section-content">
                 <h2 class="mb-5">Skills</h2>
                 <div class="subheading mb-3">Programming Languages, Tools & Approaches</div>
-                <ul class="fa-ul mb-0">
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        C#
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        ADO.NET
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        ASP.NET
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        ASP.NET CORE
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Windows Form
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        SQL/TSQL
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Git/Github
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        PHP
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        SPA (Ajax)
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        JQuery
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Typescript
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Discord Logging
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Restful Services (APIs)
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        MVC Architecture
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        NTIER Architecture
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        DRY
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Cloudflare (SSL/Access/Instances)
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Entity/Identity Framework , Dependency Injection
-                    </li>
-                    <li>
-                        <span class="fa-li"><i class="fas fa-check"></i></span>
-                        Highly motivated to learn about new technologies - no its not typo/mistake its a skill in my
-                        book :)
-                    </li>
-                </ul>
+                <ul class="fa-ul mb-0 " EXPERIENCES />
             </div>
         </section>
         <hr class="m-0" />
@@ -258,8 +170,7 @@
         <section class="resume-section" id="cloud">
             <div class="resume-section-content">
                 <h2>Knowledge Cloud</h2>
-                <div class="subheading ">Reload to generate new cloud :)</div>
-                <div style="height: 450px;" id="wordCloud1"></div>
+                <div style="height: 450px;" CLOUD />
         </section>
     </div>
     <!-- Bootstrap core JS-->
@@ -273,9 +184,17 @@
     <script src="js/scripts.js"></script>
     <script>
         $(function () {
+            let experiencesSeparator = '|||';
+            let tagsSeparator = ',';
+            $.get("/data/experiences", (response) => {
+                let listItemTemplate = '<li><span class="fa-li"><i class="fas fa-check"></i></span>';
+                listItemTemplate += response.split('\n')
+                    .join('</li>' + listItemTemplate);
+                $('[EXPERIENCES]').append(listItemTemplate);
+            });
             $.get("/data/tags", (response) => {
-                $("#wordCloud1").jQWCloud({
-                    words: response.split(',').map((element, index) => { return { word: element, weight: Math.floor((Math.random() * 100) + 50) } }),
+                $("[CLOUD]").jQWCloud({
+                    words: response.split('\n').map((element, index) => { return { word: element, weight: Math.floor((Math.random() * 100) + 50) } }),
                     minFont: 10,
                     maxFont: 50,
                     padding_left: 1,
