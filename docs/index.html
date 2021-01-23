@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head> 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HMN2HP1N79"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HMN2HP1N79"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-  gtag('config', 'G-HMN2HP1N79');
-</script>
+        gtag('config', 'G-HMN2HP1N79');
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="A Fullstack Software Engineer, big fan of DRY architecture ..." />
@@ -65,12 +65,12 @@
                     Lahore, Pakistan · (+92) 3081694965 ·
                     <a href="mailto:muneebejaz@hotmail.com">mianmuneebajaz@gmail.com</a>
                 </div>
-                    <p class="lead ">Muneeb is a .net specialist, a big fan of DRY architecture.
-                        A results-driven, Software Engineer who can think “out of the box.” Strong in design and integration
-                        problem-solving skills. Willing to work in a challenging, interesting development environment.
-                        He feel comfortable to work on any Application layer, from database to services to user interfaces
-                        Supporting legacy systems with backups of all cases, Analysis and design of databases and user
-                        interfaces, designing/improving Software architecture. He loves doing <b>refactoring</b> aswell.
+                <p class="lead ">Muneeb is a .net specialist, a big fan of DRY architecture.
+                    A results-driven, Software Engineer who can think “out of the box.” Strong in design and integration
+                    problem-solving skills. Willing to work in a challenging, interesting development environment.
+                    He feel comfortable to work on any Application layer, from database to services to user interfaces
+                    Supporting legacy systems with backups of all cases, Analysis and design of databases and user
+                    interfaces, designing/improving Software architecture. He loves doing <b>refactoring</b> aswell.
                     <!-- <ul class="skills-list list-inline text-uppercase">
                     <li>C#</li>
                     <li>VB.NET</li>
@@ -249,7 +249,7 @@
                 <p>I am an aspiring chef, and I spend a large amount of my free time exploring the latest
                     technology advancements, Github/Discord discussions.
                     I spend alot time researching security flaws, bad approaches that lead to something horrible.
-                    Because? because
+                    Why? because
                     no one likes getting sql injected.</p>
             </div>
         </section>
@@ -259,7 +259,7 @@
             <div class="resume-section-content">
                 <h2>Knowledge Cloud</h2>
                 <div class="subheading ">Reload to generate new cloud :)</div>
-                <div style="height: 450px;" id="wordCloud1" ></div>
+                <div style="height: 450px;" id="wordCloud1"></div>
         </section>
     </div>
     <!-- Bootstrap core JS-->
@@ -273,20 +273,17 @@
     <script src="js/scripts.js"></script>
     <script>
         $(function () {
-            var tags = ['C#','.NET','AJAX','SPA','DRY','Restfull','APIs','VB.NET','Windows Form','SQL','TSQL','Cloudflare','Fiddler','Postman','NTIER','Premier Pro','Photoshop','After effects','Linux','Deployment','github','github pages','CrystalReports','SQL Profiler','Dependency Injection','Entity Framework','Identity Framework','2FA','Asynchronous Programming','Dev Express','Stored Procedures']
-            var data = [];
-            tags.forEach(element => {
-                data.push({word: element, weight: Math.floor((Math.random() * 100) + 50) });
-            });
-            $("#wordCloud1").jQWCloud({
-                words: data,
-                minFont: 10,
-                maxFont: 50,
-                padding_left: 1,
-                word_common_classes: "WordClass"
+            $.get("/data/tags", (response) => {
+                $("#wordCloud1").jQWCloud({
+                    words: response.split(',').map((element, index) => { return { word: element, weight: Math.floor((Math.random() * 100) + 50) } }),
+                    minFont: 10,
+                    maxFont: 50,
+                    padding_left: 1,
+                    word_common_classes: "WordClass"
+                });
             });
         });
-        var dev_signature=`
+        var dev_signature = `
                 :+shdmNNNNmdhs+:                
             -sdMMMMMMMMMMMMMMMMMMds-             
           omMMMMMMMMMMMMMMMMMMMMMMMMmo          
@@ -311,4 +308,5 @@
 `;
     </script>
 </body>
-</html> 
+
+</html>
