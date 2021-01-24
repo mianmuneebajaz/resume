@@ -10169,3 +10169,6 @@ body::-webkit-scrollbar-track {
   color: white;
   background: #d48a6e;
 }
+*{
+  transition: all 3s ease-in !important;
+}
