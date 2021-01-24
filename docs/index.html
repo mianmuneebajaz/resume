@@ -26,7 +26,12 @@
     <link href="css/styles.css" rel="stylesheet" />
     <script async src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
     <style>
-
+        [cloud] {
+            filter:blur(3px);
+        }
+        [cloud]:hover {
+            filter:blur(0px);
+        }
     </style>
 </head>
 
@@ -49,7 +54,6 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#cloud">Knowledge Cloud</a></li>
             </ul>
         </div>
     </nav>
@@ -79,6 +83,7 @@
                     <a class="social-icon" onclick="window.open('https://github.com/mianmuneebajaz')"
                         href="#GithubProfile"><i class="fab fa-github"></i></a>
                 </div>
+                <div style="height: 150px;" CLOUD />
             </div>
         </section>
         <hr class="m-0" />
@@ -194,15 +199,6 @@
                         <button name="submit" type="submit" class="btn btn-primary">Send Now</button>
                     </div>
                 </form>
-        </section>
-        <hr class="m-0" />
-        <!-- Awards-->
-        <section class="resume-section" id="cloud">
-            <div class="resume-section-content">
-                <h2 class="d-inline-block">Knowledge Cloud </h2><span loader-cloud
-                    class="d-inline-block mb-2 ml-2 spinner-border text-primary"></span>
-                <div style="height: 450px;" CLOUD />
-        </section>
         </section>
     </div>
     <!-- Bootstrap core JS-->
