@@ -151,7 +151,13 @@
             <div class="resume-section-content">
                 <h2 class="mb-5">Skills</h2>
                 <div class="subheading mb-3">Programming Languages, Tools & Approaches</div>
-                <ul class="fa-ul mb-0 " EXPERIENCES />
+                <ul class="fa-ul mb-0 " EXPERIENCES>
+                    <li>
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </section>
         <hr class="m-0" />
@@ -199,7 +205,11 @@
         <section class="resume-section" id="cloud">
             <div class="resume-section-content">
                 <h2>Knowledge Cloud</h2>
-                <div style="height: 450px;" CLOUD></div>
+                <div style="height: 450px;" CLOUD>
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
         </section>
         </section>
     </div>
@@ -213,6 +223,10 @@
 
     <script src="js/scripts.js"></script>
     <script>
+        function sleep(seconds) {
+            var e = new Date().getTime() + (seconds * 1000);
+            while (new Date().getTime() <= e) { }
+        }
         $(function () {
             let experiencesSeparator = '|||'
             let tagsSeparator = ','
@@ -220,7 +234,7 @@
                 let listItemTemplate = '<li><span class="fa-li"><i class="fas fa-check"></i></span>';
                 listItemTemplate += response.split('\n')
                     .join('</li>' + listItemTemplate);
-                $('[EXPERIENCES]').append(listItemTemplate);
+                $('[EXPERIENCES]').html(listItemTemplate);
             })
             $.get("/data/tags", (response) => {
                 $("[CLOUD]").jQWCloud({
