@@ -214,14 +214,14 @@
     <script src="js/scripts.js"></script>
     <script>
         $(function () {
-            let experiencesSeparator = '|||';
-            let tagsSeparator = ',';
+            let experiencesSeparator = '|||'
+            let tagsSeparator = ','
             $.get("/data/experiences", (response) => {
                 let listItemTemplate = '<li><span class="fa-li"><i class="fas fa-check"></i></span>';
                 listItemTemplate += response.split('\n')
                     .join('</li>' + listItemTemplate);
                 $('[EXPERIENCES]').append(listItemTemplate);
-            });
+            })
             $.get("/data/tags", (response) => {
                 $("[CLOUD]").jQWCloud({
                     words: response.split('\n').map((element, index) => { return { word: element, weight: Math.floor((Math.random() * 100) + 50) } }),
