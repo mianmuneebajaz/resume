@@ -149,15 +149,10 @@
         <!-- Skills-->
         <section class="resume-section" id="skills">
             <div class="resume-section-content">
-                <h2 class="mb-5">Skills</h2>
+                <h2 class="mb-5 d-inline-block">Skills</h2> <span loader-experiences
+                    class="d-inline-block mb-2 ml-2 spinner-border text-primary"></span>
                 <div class="subheading mb-3">Programming Languages, Tools & Approaches</div>
-                <ul class="fa-ul mb-0 " EXPERIENCES>
-                    <li>
-                        <div class="spinner-border text-primary" role="status">
-                            <span class="sr-only">Loading...</span>
-                        </div>
-                    </li>
-                </ul>
+                <ul class="fa-ul mb-0 " EXPERIENCES />
             </div>
         </section>
         <hr class="m-0" />
@@ -204,12 +199,9 @@
         <!-- Awards-->
         <section class="resume-section" id="cloud">
             <div class="resume-section-content">
-                <h2>Knowledge Cloud</h2>
-                <div style="height: 450px;" CLOUD>
-                    <div class="spinner-border text-primary" role="status">
-                        <span class="sr-only">Loading...</span>
-                    </div>
-                </div>
+                <h2 class="d-inline-block">Knowledge Cloud </h2><span loader-cloud
+                    class="d-inline-block mb-2 ml-2 spinner-border text-primary"></span>
+                <div style="height: 450px;" CLOUD />
         </section>
         </section>
     </div>
@@ -234,9 +226,13 @@
                 let listItemTemplate = '<li><span class="fa-li"><i class="fas fa-check"></i></span>';
                 listItemTemplate += response.split('\n')
                     .join('</li>' + listItemTemplate);
+                $('[loader-experiences]').removeClass('d-inline-block');
+                $('[loader-experiences]').hide();
                 $('[EXPERIENCES]').html(listItemTemplate);
             })
             $.get("/data/tags", (response) => {
+                $('[loader-cloud]').removeClass('d-inline-block');
+                $('[loader-cloud]').hide();
                 $("[CLOUD]").jQWCloud({
                     words: response.split('\n').map((element, index) => { return { word: element, weight: Math.floor((Math.random() * 100) + 50) } }),
                     minFont: 10,
