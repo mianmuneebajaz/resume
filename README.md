@@ -1,6 +1,6 @@
-# [![muneeb ajaz header](https://muneebajaz.cf/assets/img/header.jpg?c=1)](https://muneebajaz.cf)
+# [![muneeb ajaz header](https://muneebajaz.netlify.app/assets/img/header.jpg?c=1)](https://muneebajaz.netlify.app)
 <p align='center'>
-<a href="https://www.linkedin.com/in/mianmuneebajaz/" target="_blank"><img height="30" src="https://muneebajaz.cf/assets/img/Linkedin-logo.png"></a>
+<a href="https://www.linkedin.com/in/mianmuneebajaz/" target="_blank"><img height="30" src="https://muneebajaz.netlify.app/assets/img/Linkedin-logo.png"></a>
 <br/>
 <strong>.Net | SQL | Angular | Typescript | Sass </strong>
 </p>   
