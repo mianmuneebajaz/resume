@@ -1,94 +1,213 @@
-javascript
-html
-css
-developer
-programmer
-code
-coder
-php
-webdesign
-computerscience
-codinglife
-reactjs
-frontend
-development
-programmers
-js
-MERN Stack
-MEAN Stack
-JavaScript
-NodeJS
-ReactJS
-AngularJS
-SvelteKit
-Websockets
-Sockets.IO
-Tailwind
-BulmaCSS
-SASS
-SCSS
-TwilioSDK
-ZoomSDK
-.NET
-AJAX
-SPA
-DRY
-Restfull
-APIs
-VB.NET
-Windows Form
-SQL
-TSQL
-Cloudflare
-Fiddler
-Postman
-NTIER
-Premier Pro
-Photoshop
-After effects
-Linux
-Deployment
-github
-github pages
-CrystalReports
-SQL Profiler
+C#
+.NET Core
+.NET 6/7/8
+ASP.NET Core
+ASP.NET Web API
+Blazor
+SignalR
+Entity Framework Core
+LINQ
 Dependency Injection
-Entity Framework
-Identity Framework
-2FA
-Asynchronous Programming
-Dev Express
-Stored Procedures
-AWS Lambda
-Serverless
-Microservices
-Event Driven
-GraphQL
-MongoDB
+MediatR
+AutoMapper
+Dapper
+NHibernate
+MERN Stack
+JavaScript
+TypeScript
+Node.js
 Express.js
-API Gateway
+React.js
+Next.js
+Redux
+Redux Toolkit
+React Query
+React Hooks
+Context API
+MongoDB
+Mongoose
+Nest.js
+Vue.js
+Angular
+SvelteKit
+DevOps
+CI/CD
+Azure DevOps
+Jenkins
+GitLab CI/CD
+GitHub Actions
+ArgoCD
+Docker
+Docker Compose
+Kubernetes
+Helm
+Istio
+Terraform
+Ansible
+Pulumi
+Infrastructure as Code
+GitOps
+Cloud Architecture
+AWS
+Azure
+Google Cloud Platform
+AWS Lambda
+EC2
+ECS
+EKS
+S3
+RDS
 DynamoDB
 CloudFormation
-EC2
-RDS
-S3
-CI/CD
-Docker
-Kubernetes
-TypeScript
-Architecture
-Domain Driven Design
+API Gateway
+Azure Functions
+Azure Kubernetes Service
+Azure SQL
+Azure Cosmos DB
+Azure App Service
+Azure Container Registry
+Microservices Architecture
+Event-Driven Architecture
+Domain-Driven Design
+CQRS
+Event Sourcing
 SOLID Principles
+Clean Architecture
+Hexagonal Architecture
+N-Tier Architecture
+Service-Oriented Architecture
+API Design
+RESTful APIs
+GraphQL
+gRPC
+WebSockets
+Message Queues
+RabbitMQ
+Apache Kafka
+Redis
+Azure Service Bus
+AWS SQS
+AWS SNS
+Monitoring & Observability
+Prometheus
+Grafana
+ELK Stack
+Elasticsearch
+Logstash
+Kibana
+Application Insights
+CloudWatch
+Datadog
+New Relic
+Splunk
+Security & Compliance
+OAuth 2.0
+JWT
+Identity Server
+Azure AD
+Auth0
+SSL/TLS
+OWASP
 HIPAA
-Security
-Performance
+GDPR
+DevSecOps
+Vulnerability Scanning
+Secrets Management
+Database Technologies
+SQL Server
+PostgreSQL
+MySQL
+MongoDB
+Redis Cache
+Cosmos DB
+DynamoDB
+Database Design
+SQL Optimization
+Stored Procedures
+Testing & Quality
+Unit Testing
+Integration Testing
+E2E Testing
+xUnit
+NUnit
+Jest
+Mocha
+Cypress
+Playwright
+Test-Driven Development
+Behavior-Driven Development
+Performance Engineering
 Load Balancing
-Monitoring
-Logging
-Cloud Computing
-Infrastructure as Code
-REST APIs
-Real-time Systems
+Caching Strategies
+CDN
+Performance Optimization
 Scalability
 High Availability
-DevOps
+Disaster Recovery
+API Management
+API Versioning
+Rate Limiting
+API Security
+Swagger/OpenAPI
+Postman
+Fiddler
+Version Control & Collaboration
+Git
+GitHub
+GitLab
+Azure Repos
+Branching Strategies
+Code Review
+Frontend Technologies
+HTML5
+CSS3
+SASS/SCSS
+Tailwind CSS
+Bootstrap
+Material-UI
+Ant Design
+Webpack
+Vite
+Babel
+Real-time Applications
+WebSockets
+Socket.io
+SignalR
+Server-Sent Events
+Agile & Leadership
+Scrum
+Kanban
+Technical Leadership
+Mentoring
+Architecture Reviews
+System Design
+Capacity Planning
+Cost Optimization
+Linux Administration
+Bash/Shell Scripting
+PowerShell
+Nginx
+Apache
+IIS
+Serverless Architecture
+AWS Lambda
+Azure Functions
+Serverless Framework
+API Gateway
+Backend Technologies
+Asynchronous Programming
+Middleware Design
+ORM/ODM
+Data Validation
+Error Handling
+Logging Frameworks
+Modern Practices
+Containerization
+Orchestration
+Service Mesh
+Blue-Green Deployment
+Canary Deployment
+Feature Flags
+A/B Testing
+12-Factor App
+Cloud Native
