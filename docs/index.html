@@ -51,7 +51,6 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#experience">Experience</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#education">Education</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#skills">Skills</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#interests">Interests</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -204,26 +203,103 @@
         </section>
         <hr class="m-0" />
         <!-- Skills-->
-        <section class="resume-section" id="skills">
+        <section class="resume-section" style="max-width: 100% !important;" id="skills">
             <div class="resume-section-content">
-                <h2 class="mb-5 d-inline-block">Skills</h2> <span loader-experiences
-                    class="d-inline-block mb-2 ml-2 spinner-border text-primary"></span>
+                <h2 class="mb-5">Skills</h2>
                 <div class="subheading mb-3">Programming Languages, Tools & Approaches</div>
-                <ul class="fa-ul mb-0 " EXPERIENCES />
+
+                <!-- Skills Stats -->
+                <div class="skills-stats-container">
+                    <div class="skill-stat-card">
+                        <div class="stat-icon"><i class="fas fa-code"></i></div>
+                        <div class="stat-value" data-target="40">0</div>
+                        <div class="stat-label">Technologies</div>
+                    </div>
+                    <div class="skill-stat-card">
+                        <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                        <div class="stat-value" data-target="10">0</div>
+                        <div class="stat-label">Live Projects</div>
+                    </div>
+                    <div class="skill-stat-card">
+                        <div class="stat-icon"><i class="fas fa-award"></i></div>
+                        <div class="stat-value" data-target="6">0</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="skill-stat-card">
+                        <div class="stat-icon"><i class="fas fa-certificate"></i></div>
+                        <div class="stat-value" data-target="5">0</div>
+                        <div class="stat-label">Certifications</div>
+                    </div>
+                </div>
+
+                <!-- Skills Filter Tabs -->
+                <div class="skills-filter-container mb-4">
+                    <button class="skill-filter-btn active" data-category="all">All Skills <span class="kbd-hint">1</span></button>
+                    <button class="skill-filter-btn" data-category="frontend">Frontend <span class="kbd-hint">2</span></button>
+                    <button class="skill-filter-btn" data-category="backend">Backend <span class="kbd-hint">3</span></button>
+                    <button class="skill-filter-btn" data-category="cloud">Cloud & DevOps <span class="kbd-hint">4</span></button>
+                    <button class="skill-filter-btn" data-category="database">Database <span class="kbd-hint">5</span></button>
+                    <button class="skill-filter-btn" data-category="tools">Tools & Others <span class="kbd-hint">6</span></button>
+                </div>
+
+                <!-- Keyboard Shortcuts Info -->
+                <div class="keyboard-shortcuts-info">
+                    <i class="fas fa-keyboard"></i>
+                    <span>Press 1-6 to filter | Press / to search</span>
+                </div>
+
+                <!-- Skills Visualization Container -->
+                <div class="skills-visualization-wrapper">
+                    <!-- Orbiting Skills Animation -->
+                    <div class="skills-orbit-container">
+                        <div class="central-hub">
+                            <i class="fas fa-code"></i>
+                            <span class="hub-label">Tech Stack</span>
+                        </div>
+                        <div class="orbit orbit-1">
+                            <div class="orbit-skill" data-skill="JavaScript">
+                                <i class="fab fa-js"></i>
+                            </div>
+                            <div class="orbit-skill" data-skill="React">
+                                <i class="fab fa-react"></i>
+                            </div>
+                            <div class="orbit-skill" data-skill="Node.js">
+                                <i class="fab fa-node-js"></i>
+                            </div>
+                        </div>
+                        <div class="orbit orbit-2">
+                            <div class="orbit-skill" data-skill="AWS">
+                                <i class="fab fa-aws"></i>
+                            </div>
+                            <div class="orbit-skill" data-skill=".NET">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="orbit-skill" data-skill="Docker">
+                                <i class="fab fa-docker"></i>
+                            </div>
+                            <div class="orbit-skill" data-skill="MongoDB">
+                                <i class="fas fa-database"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills Grid -->
+                    <div class="skills-grid-container">
+                        <div class="skills-search-box mb-3">
+                            <i  style="top: 50% !important; left: 15px !important;position: absolute; transform: translateY(-50%) !important;" class="fas fa-search"></i>
+                            <input type="text" id="skillSearch" placeholder="Search skills..." />
+                        </div>
+                        <div class="skills-grid" id="skillsGrid">
+                            <!-- Skills will be dynamically loaded here -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Legacy loader (hidden) -->
+                <span loader-experiences style="display: none;" class="spinner-border text-primary"></span>
             </div>
         </section>
         <hr class="m-0" />
-        <!-- Interests-->
-        <section class="resume-section" id="interests">
-            <div class="resume-section-content">
-                <h2 class="mb-5">Interests</h2>
-                <p>I am an aspiring chef, and I spend a large amount of my free time exploring the latest
-                    technology advancements, Github/Discord discussions.
-                    I spend alot time researching security flaws, bad approaches that lead to something horrible.
-                    Why? because
-                    no one likes getting sql injected.</p>
-            </div>
-        </section>
         <hr class="m-0" />
         <!-- Contact -->
         <section class="resume-section" id="contact">

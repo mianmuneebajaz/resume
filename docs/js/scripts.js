@@ -40,3 +40,529 @@
         target: "#sideNav",
     });
 })(jQuery); // End of use strict
+
+// ============================================
+// INNOVATIVE SKILLS SECTION
+// ============================================
+
+// Skills Data Structure
+const skillsDatabase = [
+    {
+        name: "MERN Stack",
+        category: "fullstack",
+        icon: "fas fa-layer-group",
+        level: 95,
+        description: "Expert in MongoDB, Express.js, React.js, and Node.js full-stack development"
+    },
+    {
+        name: "JavaScript",
+        category: "frontend",
+        icon: "fab fa-js",
+        level: 95,
+        description: "Advanced JavaScript including ES6+, async/await, and modern patterns"
+    },
+    {
+        name: "React.js",
+        category: "frontend",
+        icon: "fab fa-react",
+        level: 90,
+        description: "Building modern, performant UIs with React hooks, context, and state management"
+    },
+    {
+        name: "Node.js",
+        category: "backend",
+        icon: "fab fa-node-js",
+        level: 90,
+        description: "Scalable server-side applications with Node.js and Express"
+    },
+    {
+        name: "TypeScript",
+        category: "frontend",
+        icon: "fas fa-code",
+        level: 85,
+        description: "Type-safe development with TypeScript for robust applications"
+    },
+    {
+        name: "MongoDB",
+        category: "database",
+        icon: "fas fa-database",
+        level: 85,
+        description: "NoSQL database design, optimization, and aggregation pipelines"
+    },
+    {
+        name: "AWS Lambda",
+        category: "cloud",
+        icon: "fab fa-aws",
+        level: 88,
+        description: "Serverless computing and function-as-a-service solutions"
+    },
+    {
+        name: "AWS DynamoDB",
+        category: "cloud",
+        icon: "fas fa-server",
+        level: 80,
+        description: "NoSQL cloud database solutions with AWS DynamoDB"
+    },
+    {
+        name: "AWS API Gateway",
+        category: "cloud",
+        icon: "fas fa-network-wired",
+        level: 85,
+        description: "API management, throttling, and security with AWS"
+    },
+    {
+        name: ".NET Core",
+        category: "backend",
+        icon: "fas fa-project-diagram",
+        level: 92,
+        description: "Building enterprise applications with ASP.NET Core and C#"
+    },
+    {
+        name: "SQL/T-SQL",
+        category: "database",
+        icon: "fas fa-table",
+        level: 88,
+        description: "Query optimization, stored procedures, and database design"
+    },
+    {
+        name: "Docker",
+        category: "cloud",
+        icon: "fab fa-docker",
+        level: 80,
+        description: "Container orchestration and microservices deployment"
+    },
+    {
+        name: "Kubernetes",
+        category: "cloud",
+        icon: "fas fa-dharmachakra",
+        level: 75,
+        description: "Container orchestration and cluster management"
+    },
+    {
+        name: "GraphQL",
+        category: "backend",
+        icon: "fas fa-project-diagram",
+        level: 82,
+        description: "Modern API development with GraphQL schemas and resolvers"
+    },
+    {
+        name: "Tailwind CSS",
+        category: "frontend",
+        icon: "fas fa-paint-brush",
+        level: 88,
+        description: "Utility-first CSS framework for rapid UI development"
+    },
+    {
+        name: "SvelteKit",
+        category: "frontend",
+        icon: "fas fa-bolt",
+        level: 75,
+        description: "Modern reactive framework for fast web applications"
+    },
+    {
+        name: "WebSockets",
+        category: "backend",
+        icon: "fas fa-exchange-alt",
+        level: 85,
+        description: "Real-time bidirectional communication with Socket.IO"
+    },
+    {
+        name: "Git & GitHub",
+        category: "tools",
+        icon: "fab fa-github",
+        level: 90,
+        description: "Version control, branching strategies, and collaboration"
+    },
+    {
+        name: "CI/CD Pipelines",
+        category: "cloud",
+        icon: "fas fa-sync-alt",
+        level: 82,
+        description: "Automated testing, building, and deployment workflows"
+    },
+    {
+        name: "Microservices",
+        category: "backend",
+        icon: "fas fa-cubes",
+        level: 88,
+        description: "Distributed system architecture and service design"
+    },
+    {
+        name: "Entity Framework",
+        category: "backend",
+        icon: "fas fa-link",
+        level: 90,
+        description: "ORM for .NET with code-first and database-first approaches"
+    },
+    {
+        name: "Domain-Driven Design",
+        category: "tools",
+        icon: "fas fa-sitemap",
+        level: 85,
+        description: "Software design methodology focused on business domain"
+    },
+    {
+        name: "SOLID Principles",
+        category: "tools",
+        icon: "fas fa-check-double",
+        level: 92,
+        description: "Object-oriented design principles for maintainable code"
+    },
+    {
+        name: "Performance Optimization",
+        category: "tools",
+        icon: "fas fa-tachometer-alt",
+        level: 88,
+        description: "Application profiling, caching strategies, and optimization"
+    },
+    {
+        name: "AngularJS",
+        category: "frontend",
+        icon: "fab fa-angular",
+        level: 78,
+        description: "Legacy Angular applications migration and maintenance"
+    },
+    {
+        name: "Windows Forms",
+        category: "tools",
+        icon: "fab fa-windows",
+        level: 85,
+        description: "Desktop application development with .NET Windows Forms"
+    },
+    {
+        name: "ADO.NET",
+        category: "backend",
+        icon: "fas fa-database",
+        level: 88,
+        description: "Data access layer implementation with ADO.NET"
+    },
+    {
+        name: "SASS/SCSS",
+        category: "frontend",
+        icon: "fab fa-sass",
+        level: 82,
+        description: "Advanced CSS preprocessing with mixins and functions"
+    },
+    {
+        name: "jQuery",
+        category: "frontend",
+        icon: "fas fa-code",
+        level: 90,
+        description: "DOM manipulation and AJAX with jQuery"
+    },
+    {
+        name: "RESTful APIs",
+        category: "backend",
+        icon: "fas fa-plug",
+        level: 92,
+        description: "Designing and implementing REST API endpoints"
+    },
+    {
+        name: "AWS S3",
+        category: "cloud",
+        icon: "fab fa-aws",
+        level: 85,
+        description: "Cloud storage and CDN solutions with S3"
+    },
+    {
+        name: "AWS CloudFormation",
+        category: "cloud",
+        icon: "fas fa-cloud",
+        level: 78,
+        description: "Infrastructure as Code with CloudFormation"
+    },
+    {
+        name: "Cloudflare",
+        category: "cloud",
+        icon: "fas fa-shield-alt",
+        level: 80,
+        description: "Security, performance optimization, and DDoS protection"
+    },
+    {
+        name: "HIPAA Compliance",
+        category: "tools",
+        icon: "fas fa-user-shield",
+        level: 85,
+        description: "Healthcare data security and compliance standards"
+    },
+    {
+        name: "Load Balancing",
+        category: "cloud",
+        icon: "fas fa-balance-scale",
+        level: 80,
+        description: "Traffic distribution and high availability strategies"
+    },
+    {
+        name: "Serverless Architecture",
+        category: "cloud",
+        icon: "fas fa-server",
+        level: 88,
+        description: "Event-driven serverless application design"
+    },
+    {
+        name: "Event-Driven Design",
+        category: "backend",
+        icon: "fas fa-bolt",
+        level: 85,
+        description: "Asynchronous event-based architecture patterns"
+    },
+    {
+        name: "Identity Framework",
+        category: "backend",
+        icon: "fas fa-id-card",
+        level: 88,
+        description: "Authentication and authorization with ASP.NET Identity"
+    },
+    {
+        name: "Dependency Injection",
+        category: "tools",
+        icon: "fas fa-syringe",
+        level: 90,
+        description: "Inversion of Control and loose coupling patterns"
+    }
+];
+
+// Category mapping for filtering
+const categoryMapping = {
+    'all': ['frontend', 'backend', 'cloud', 'database', 'tools', 'fullstack'],
+    'frontend': ['frontend'],
+    'backend': ['backend', 'fullstack'],
+    'cloud': ['cloud'],
+    'database': ['database'],
+    'tools': ['tools']
+};
+
+// Initialize Skills Section
+function initializeSkillsSection() {
+    renderSkillCards(skillsDatabase);
+    setupFilterButtons();
+    setupSearchFunctionality();
+    animateStatsCounter();
+}
+
+// Animate stats counter
+function animateStatsCounter() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statValues = entry.target.querySelectorAll('.stat-value');
+                statValues.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-target'));
+                    const duration = 2000; // 2 seconds
+                    const increment = target / (duration / 16); // 60fps
+                    let current = 0;
+
+                    const updateCounter = () => {
+                        current += increment;
+                        if (current < target) {
+                            stat.textContent = Math.floor(current);
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            stat.textContent = target;
+                        }
+                    };
+
+                    updateCounter();
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const statsContainer = document.querySelector('.skills-stats-container');
+    if (statsContainer) {
+        observer.observe(statsContainer);
+    }
+}
+
+// Render skill cards
+function renderSkillCards(skills) {
+    const skillsGrid = document.getElementById('skillsGrid');
+    if (!skillsGrid) return;
+
+    skillsGrid.innerHTML = '';
+
+    skills.forEach((skill, index) => {
+        const card = document.createElement('div');
+        card.className = 'skill-card';
+        card.setAttribute('data-category', skill.category);
+        card.setAttribute('data-aos', 'fade-up');
+        card.setAttribute('data-aos-delay', (index % 6) * 100);
+
+        card.innerHTML = `
+            <div class="skill-category">${skill.category}</div>
+            <div class="skill-header">
+                <h3 class="skill-name">${skill.name}</h3>
+                <i class="${skill.icon} skill-icon"></i>
+            </div>
+            <p class="skill-description">${skill.description}</p>
+        `;
+
+        skillsGrid.appendChild(card);
+    });
+}
+
+// Setup filter buttons
+function setupFilterButtons() {
+    const filterButtons = document.querySelectorAll('.skill-filter-btn');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            // Add active class to clicked button
+            this.classList.add('active');
+
+            // Get selected category
+            const selectedCategory = this.getAttribute('data-category');
+
+            // Filter skills
+            filterSkills(selectedCategory);
+        });
+    });
+}
+
+// Filter skills by category
+function filterSkills(category) {
+    const allowedCategories = categoryMapping[category] || [];
+    const allCards = document.querySelectorAll('.skill-card');
+
+    allCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+
+        if (category === 'all' || allowedCategories.includes(cardCategory)) {
+            card.classList.remove('hidden');
+        } else {
+            card.classList.add('hidden');
+        }
+    });
+}
+
+// Setup search functionality
+function setupSearchFunctionality() {
+    const searchInput = document.getElementById('skillSearch');
+
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.toLowerCase();
+        const allCards = document.querySelectorAll('.skill-card');
+
+        allCards.forEach(card => {
+            const skillName = card.querySelector('.skill-name').textContent.toLowerCase();
+            const skillDescription = card.querySelector('.skill-description').textContent.toLowerCase();
+
+            if (skillName.includes(searchTerm) || skillDescription.includes(searchTerm)) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+
+        // If search is empty, reapply the active filter
+        if (searchTerm === '') {
+            const activeFilter = document.querySelector('.skill-filter-btn.active');
+            if (activeFilter) {
+                const category = activeFilter.getAttribute('data-category');
+                filterSkills(category);
+            }
+        }
+    });
+}
+
+
+// Keyboard shortcuts for skills filtering
+function setupKeyboardShortcuts() {
+    document.addEventListener('keydown', function(e) {
+        // Only activate when not typing in input
+        if (e.target.tagName === 'INPUT') return;
+
+        const shortcuts = {
+            '1': 'all',
+            '2': 'frontend',
+            '3': 'backend',
+            '4': 'cloud',
+            '5': 'database',
+            '6': 'tools'
+        };
+
+        if (shortcuts[e.key]) {
+            e.preventDefault();
+            const category = shortcuts[e.key];
+            const button = document.querySelector(`[data-category="${category}"]`);
+            if (button) {
+                button.click();
+                // Visual feedback
+                button.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    button.style.transform = '';
+                }, 100);
+            }
+        }
+
+        // Press '/' to focus search
+        if (e.key === '/' || e.key === 's') {
+            e.preventDefault();
+            const searchInput = document.getElementById('skillSearch');
+            if (searchInput) {
+                searchInput.focus();
+            }
+        }
+    });
+}
+
+// Add skill card click interactions
+function enhanceSkillCards() {
+    document.addEventListener('click', function(e) {
+        const skillCard = e.target.closest('.skill-card');
+        if (skillCard) {
+            // Add ripple effect
+            const ripple = document.createElement('span');
+            ripple.className = 'card-ripple';
+            ripple.style.cssText = `
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background: rgba(189, 93, 56, 0.3);
+                border-radius: 50%;
+                pointer-events: none;
+                animation: ripple-animation 0.6s ease-out;
+            `;
+
+            const rect = skillCard.getBoundingClientRect();
+            ripple.style.left = (e.clientX - rect.left - 10) + 'px';
+            ripple.style.top = (e.clientY - rect.top - 10) + 'px';
+
+            skillCard.appendChild(ripple);
+
+            setTimeout(() => ripple.remove(), 600);
+        }
+    });
+}
+
+// Add dynamic styles for ripple animation
+function addDynamicStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes ripple-animation {
+            to {
+                transform: scale(15);
+                opacity: 0;
+            }
+        }
+
+        .skill-card {
+            position: relative;
+            overflow: hidden;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', function() {
+    initializeSkillsSection();
+    setupKeyboardShortcuts();
+    enhanceSkillCards();
+    addDynamicStyles();
+});
