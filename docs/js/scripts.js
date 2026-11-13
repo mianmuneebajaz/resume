@@ -442,12 +442,10 @@ function renderSkillCards(skills) {
 
     skillsGrid.innerHTML = '';
 
-    skills.forEach((skill, index) => {
+    skills.forEach((skill) => {
         const card = document.createElement('div');
         card.className = 'skill-card';
         card.setAttribute('data-category', skill.category);
-        card.setAttribute('data-aos', 'fade-up');
-        card.setAttribute('data-aos-delay', (index % 6) * 100);
 
         card.innerHTML = `
             <div class="skill-category">${getCategoryLabel(skill.category)}</div>
@@ -611,19 +609,9 @@ function enhanceSkillCards() {
     document.addEventListener('click', function(e) {
         const skillCard = e.target.closest('.skill-card');
         if (skillCard && !prefersReducedMotion()) {
-            // Add ripple effect
+            // Add ripple effect (styled by .card-ripple in the stylesheet)
             const ripple = document.createElement('span');
             ripple.className = 'card-ripple';
-            ripple.style.cssText = `
-                position: absolute;
-                width: 20px;
-                height: 20px;
-                background: rgba(168, 78, 43, 0.3);
-                border-radius: 50%;
-                pointer-events: none;
-                animation: ripple-animation 0.6s ease-out;
-            `;
-
             const rect = skillCard.getBoundingClientRect();
             ripple.style.left = (e.clientX - rect.left - 10) + 'px';
             ripple.style.top = (e.clientY - rect.top - 10) + 'px';
@@ -635,29 +623,47 @@ function enhanceSkillCards() {
     });
 }
 
-// Add dynamic styles for ripple animation
-function addDynamicStyles() {
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes ripple-animation {
-            to {
-                transform: scale(15);
-                opacity: 0;
-            }
-        }
-
-        .skill-card {
-            position: relative;
-            overflow: hidden;
-        }
-    `;
-    document.head.appendChild(style);
-}
-
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', function() {
     initializeSkillsSection();
     setupKeyboardShortcuts();
     enhanceSkillCards();
-    addDynamicStyles();
+});
+
+$(function () {
+    // Contact form: no backend on GitHub Pages, so validate and show feedback client side only.
+    $('#contactForm').on('submit', function (e) {
+        e.preventDefault();
+        var form = this;
+        var $feedback = $('#contactFeedback');
+        $feedback.removeClass('d-none alert-success alert-danger');
+        if (!form.checkValidity()) {
+            $(form).addClass('was-validated');
+            $feedback.addClass('alert-danger')
+                .text('Please enter a valid email address and a message.');
+            return;
+        }
+        $(form).removeClass('was-validated');
+        form.reset();
+        $feedback.addClass('alert-success')
+            .text('Thanks! Your message has been received. I will get back to you soon.');
+    });
+
+    // Tag cloud in the About section
+    const toLines = (text) => String(text).split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+
+    $.get("data/tags.txt")
+        .done((response) => {
+            $("[CLOUD]").jQWCloud({
+                words: toLines(response).map((element) => ({ word: element, weight: Math.floor((Math.random() * 100) + 50) })),
+                minFont: 2,
+                maxFont: 45,
+                padding_left: 1,
+                word_common_classes: "WordClass"
+            });
+        })
+        .fail(() => {
+            $("[CLOUD]").hide();
+            $('[cloud-fallback]').removeClass('d-none');
+        });
 });
