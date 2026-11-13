@@ -65,8 +65,9 @@
                     <span class="text-primary">Ajaz</span>
                 </h1>
                 <div class="subheading mb-5">
-                    Lahore, Pakistan · (+92) 3081694965 ·
-                    <a href="mailto:muneebejaz@hotmail.com">mianmuneebajaz@gmail.com</a>
+                    Lahore, Pakistan ·
+                    <a href="tel:+923081694965">(+92) 3081694965</a> ·
+                    <a href="mailto:mianmuneebajaz@gmail.com">mianmuneebajaz@gmail.com</a>
                 </div>
                 <p class="lead ">Muneeb is a .net specialist, a big fan of DRY architecture.
                     A results-driven, Software Engineer who can think “out of the box.” Strong in design and integration
@@ -315,7 +316,8 @@
         <section class="resume-section" id="contact">
             <div class="resume-section-content">
                 <h2>Contact</h2>
-                <form class="col-6 mx-auto" netlify>
+                <form id="contactForm" class="col-12 col-md-8 col-lg-6 mx-auto" action="#" method="post" novalidate>
+                    <div id="contactFeedback" class="alert d-none" role="status" aria-live="polite"></div>
                     <div class="form-group">
                         <label for="email">Email</label>
                         <div class="input-group">
@@ -324,7 +326,7 @@
                                     <i class="fa fa-address-card"></i>
                                 </div>
                             </div>
-                            <input id="email" name="email" placeholder="abc@example.com" type="text" required="required"
+                            <input id="email" name="email" placeholder="abc@example.com" type="email" autocomplete="email" required="required"
                                 class="form-control">
                         </div>
                     </div>
@@ -337,6 +339,7 @@
                         <button name="submit" type="submit" class="btn btn-primary">Send Now</button>
                     </div>
                 </form>
+            </div>
         </section>
     </div>
     <!-- Bootstrap core JS-->
@@ -354,6 +357,23 @@
             while (new Date().getTime() <= e) { }
         }
         $(function () {
+            // Contact form: no backend on GitHub Pages, so validate and show feedback client side only.
+            $('#contactForm').on('submit', function (e) {
+                e.preventDefault();
+                var form = this;
+                var $feedback = $('#contactFeedback');
+                $feedback.removeClass('d-none alert-success alert-danger');
+                if (!form.checkValidity()) {
+                    $(form).addClass('was-validated');
+                    $feedback.addClass('alert-danger')
+                        .text('Please enter a valid email address and a message.');
+                    return;
+                }
+                $(form).removeClass('was-validated');
+                form.reset();
+                $feedback.addClass('alert-success')
+                    .text('Thanks! Your message has been received. I will get back to you soon.');
+            });
             let experiencesSeparator = '|||'
             let tagsSeparator = ','
             const toLines = (text) => String(text).split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
