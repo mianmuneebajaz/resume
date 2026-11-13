@@ -3,6 +3,24 @@
     * Copyright 2013-2020 Start Bootstrap
     * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
     */
+// Shared check for the user's reduced motion preference
+function prefersReducedMotion() {
+    return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+}
+
+// Move keyboard and screen reader focus to a scroll target without jumping
+function focusTarget(el) {
+    if (!el) return;
+    if (!el.hasAttribute("tabindex") && !/^(A|BUTTON|INPUT|SELECT|TEXTAREA)$/.test(el.tagName)) {
+        el.setAttribute("tabindex", "-1");
+    }
+    try {
+        el.focus({ preventScroll: true });
+    } catch (err) {
+        el.focus();
+    }
+}
+
     (function ($) {
     "use strict"; // Start of use strict
 
@@ -18,13 +36,19 @@
                 ? target
                 : $("[name=" + this.hash.slice(1) + "]");
             if (target.length) {
-                $("html, body").animate(
-                    {
-                        scrollTop: target.offset().top,
-                    },
-                    1000,
-                    "easeInOutExpo"
-                );
+                var scrollTop = target.offset().top;
+                if (prefersReducedMotion()) {
+                    $("html, body").stop().scrollTop(scrollTop);
+                    focusTarget(target[0]);
+                } else {
+                    $("html, body")
+                        .stop()
+                        .animate({ scrollTop: scrollTop }, 1000, "easeInOutExpo")
+                        .promise()
+                        .done(function () {
+                            focusTarget(target[0]);
+                        });
+                }
                 return false;
             }
         }
@@ -369,11 +393,15 @@ function updateDerivedStats() {
     const techStat = document.querySelector('.stat-value[data-stat="technologies"]');
     if (techStat) {
         techStat.setAttribute('data-target', skillsDatabase.length);
+        // Keep the visible value real even when the counter does not animate
+        techStat.textContent = skillsDatabase.length;
     }
 }
 
-// Animate stats counter
+// Animate stats counter. The HTML already holds the real values, so
+// with reduced motion (or no IntersectionObserver) we leave them as is.
 function animateStatsCounter() {
+    if (prefersReducedMotion() || !('IntersectionObserver' in window)) return;
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -558,10 +586,12 @@ function setupKeyboardShortcuts() {
             if (button) {
                 button.click();
                 // Visual feedback
-                button.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    button.style.transform = '';
-                }, 100);
+                if (!prefersReducedMotion()) {
+                    button.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        button.style.transform = '';
+                    }, 100);
+                }
             }
         }
 
@@ -580,7 +610,7 @@ function setupKeyboardShortcuts() {
 function enhanceSkillCards() {
     document.addEventListener('click', function(e) {
         const skillCard = e.target.closest('.skill-card');
-        if (skillCard) {
+        if (skillCard && !prefersReducedMotion()) {
             // Add ripple effect
             const ripple = document.createElement('span');
             ripple.className = 'card-ripple';
@@ -588,7 +618,7 @@ function enhanceSkillCards() {
                 position: absolute;
                 width: 20px;
                 height: 20px;
-                background: rgba(189, 93, 56, 0.3);
+                background: rgba(168, 78, 43, 0.3);
                 border-radius: 50%;
                 pointer-events: none;
                 animation: ripple-animation 0.6s ease-out;
