@@ -70,12 +70,20 @@
                     interfaces, designing/improving Software architecture. He loves doing <b>refactoring</b> aswell.
                 </p>
                 <div class="social-icons">
-                    <a class="social-icon" onclick="window.open('https://www.linkedin.com/in/muneebajaz/')"
-                        href="#LinkedInProfile" aria-label="LinkedIn profile (opens in a new window)"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
-                    <a class="social-icon" onclick="window.open('https://github.com/mianmuneebajaz')"
-                        href="#GithubProfile" aria-label="GitHub profile (opens in a new window)"><i class="fab fa-github" aria-hidden="true"></i></a>
+                    <a class="social-icon" href="https://www.linkedin.com/in/muneebajaz/" target="_blank" rel="noopener noreferrer" aria-label="Muneeb Ajaz on LinkedIn (opens in a new tab)"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <a class="social-icon" href="https://github.com/mianmuneebajaz" target="_blank" rel="noopener noreferrer" aria-label="Muneeb Ajaz on GitHub (opens in a new tab)"><i class="fab fa-github" aria-hidden="true"></i></a>
                 </div>
                 <div style="height: 150px;" CLOUD></div>
+                <p class="text-muted small d-none" cloud-fallback>
+                    .NET, C#, ASP.NET Core, JavaScript, TypeScript, Node.js, React.js, MongoDB, SQL Server,
+                    AWS, Azure, Docker, Kubernetes, Microservices, CI/CD
+                </p>
+                <noscript>
+                    <p class="text-muted small">
+                        .NET, C#, ASP.NET Core, JavaScript, TypeScript, Node.js, React.js, MongoDB, SQL Server,
+                        AWS, Azure, Docker, Kubernetes, Microservices, CI/CD
+                    </p>
+                </noscript>
             </div>
         </section>
         <hr class="m-0" />
@@ -89,7 +97,7 @@
                 <div class="skills-stats-container">
                     <div class="skill-stat-card">
                         <div class="stat-icon"><i class="fas fa-code" aria-hidden="true"></i></div>
-                        <div class="stat-value" data-target="40">40</div>
+                        <div class="stat-value" data-stat="technologies" data-target="39">39</div>
                         <div class="stat-label">Technologies</div>
                     </div>
                     <div class="skill-stat-card">
@@ -111,16 +119,16 @@
 
                 <!-- Skills Filter Tabs -->
                 <div class="skills-filter-container mb-4" role="group" aria-label="Filter skills by category">
-                    <button class="skill-filter-btn active" data-category="all" aria-pressed="true" aria-keyshortcuts="1">All Skills <span class="kbd-hint" aria-hidden="true">1</span></button>
-                    <button class="skill-filter-btn" data-category="frontend" aria-pressed="false" aria-keyshortcuts="2">Frontend <span class="kbd-hint" aria-hidden="true">2</span></button>
-                    <button class="skill-filter-btn" data-category="backend" aria-pressed="false" aria-keyshortcuts="3">Backend <span class="kbd-hint" aria-hidden="true">3</span></button>
-                    <button class="skill-filter-btn" data-category="cloud" aria-pressed="false" aria-keyshortcuts="4">Cloud & DevOps <span class="kbd-hint" aria-hidden="true">4</span></button>
-                    <button class="skill-filter-btn" data-category="database" aria-pressed="false" aria-keyshortcuts="5">Database <span class="kbd-hint" aria-hidden="true">5</span></button>
-                    <button class="skill-filter-btn" data-category="tools" aria-pressed="false" aria-keyshortcuts="6">Tools & Others <span class="kbd-hint" aria-hidden="true">6</span></button>
+                    <button type="button" class="skill-filter-btn active" data-category="all" aria-pressed="true" aria-keyshortcuts="1">All Skills <span class="kbd-hint" aria-hidden="true">1</span></button>
+                    <button type="button" class="skill-filter-btn" data-category="frontend" aria-pressed="false" aria-keyshortcuts="2">Frontend <span class="kbd-hint" aria-hidden="true">2</span></button>
+                    <button type="button" class="skill-filter-btn" data-category="backend" aria-pressed="false" aria-keyshortcuts="3">Backend <span class="kbd-hint" aria-hidden="true">3</span></button>
+                    <button type="button" class="skill-filter-btn" data-category="cloud" aria-pressed="false" aria-keyshortcuts="4">Cloud &amp; DevOps <span class="kbd-hint" aria-hidden="true">4</span></button>
+                    <button type="button" class="skill-filter-btn" data-category="database" aria-pressed="false" aria-keyshortcuts="5">Database <span class="kbd-hint" aria-hidden="true">5</span></button>
+                    <button type="button" class="skill-filter-btn" data-category="tools" aria-pressed="false" aria-keyshortcuts="6">Tools &amp; Others <span class="kbd-hint" aria-hidden="true">6</span></button>
                 </div>
 
                 <!-- Keyboard Shortcuts Info -->
-                <div class="keyboard-shortcuts-info">
+                <div class="keyboard-shortcuts-info" aria-hidden="true">
                     <i class="fas fa-keyboard" aria-hidden="true"></i>
                     <span>Press 1-6 to filter | Press / to search</span>
                 </div>
@@ -163,12 +171,26 @@
                     <!-- Skills Grid -->
                     <div class="skills-grid-container">
                         <div class="skills-search-box mb-3">
+                            <label for="skillSearch" class="sr-only">Search skills</label>
                             <i  style="top: 50% !important; left: 15px !important;position: absolute; transform: translateY(-50%) !important;" class="fas fa-search" aria-hidden="true"></i>
-                            <input type="text" id="skillSearch" placeholder="Search skills..." aria-label="Search skills" aria-keyshortcuts="/" aria-controls="skillsGrid" />
+                            <input type="search" id="skillSearch" placeholder="Search skills..." autocomplete="off" aria-controls="skillsGrid" aria-keyshortcuts="/" />
                         </div>
-                        <p id="skillsStatus" class="sr-only" role="status" aria-live="polite"></p>
+                        <p class="skills-status" id="skillsStatus" role="status" aria-live="polite"></p>
                         <div class="skills-grid" id="skillsGrid">
                             <!-- Skills will be dynamically loaded here -->
+                            <noscript>
+                                <ul>
+                                    <li>Backend: .NET, C#, ASP.NET Core, Entity Framework, Node.js, Express.js</li>
+                                    <li>Frontend: JavaScript, TypeScript, React.js, Angular, SvelteKit, HTML5, CSS3</li>
+                                    <li>Cloud &amp; DevOps: AWS, Azure, Docker, Kubernetes, CI/CD, Serverless</li>
+                                    <li>Database: SQL Server, MongoDB, DynamoDB, PostgreSQL</li>
+                                    <li>Architecture: Microservices, Event-Driven Design, Dependency Injection</li>
+                                </ul>
+                            </noscript>
+                        </div>
+                        <div class="skills-empty" id="skillsEmpty" hidden>
+                            <p class="skills-empty-message">No skills found.</p>
+                            <button type="button" class="skills-reset-btn" id="skillsReset">Clear search and filters</button>
                         </div>
                     </div>
                 </div>
@@ -184,8 +206,7 @@
                 <h2 class="mb-5" id="experience-heading">Experience</h2>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0"><a class="social-icon" onclick="window.open('https://www.shuttle.health/')"
-                            href="#ShuttleHealth" aria-label="Visit Shuttle Health website (opens in a new window)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;Shuttle Health</h3>
+                        <h3 class="mb-0"><a class="social-icon" href="https://www.shuttle.health/" target="_blank" rel="noopener noreferrer" aria-label="Shuttle Health website (opens in a new tab)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;Shuttle Health</h3>
                         <div class="subheading mb-3">Healthcare Platform</div>
                         <p>Shuttle Health is focused on digitizing the documentation, communication and workflow between provider, supplier and patient.</p>
                     </div>
@@ -193,8 +214,7 @@
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0"><a class="social-icon" onclick="window.open('http://gselingo.com')"
-                            href="#gselingo" aria-label="Visit GSE Lingo website (opens in a new window)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;GSE Lingo</h3>
+                        <h3 class="mb-0"><a class="social-icon" href="https://gselingo.com" target="_blank" rel="noopener noreferrer" aria-label="GSE Lingo website (opens in a new tab)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;GSE Lingo</h3>
                         <div class="subheading mb-3"></div>
                         <p>Bingo is a fun game of chance that anyone can play. The game is played on a scorecard that's made up of 25 squares.</p>
                     </div>
@@ -202,8 +222,7 @@
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0"><a class="social-icon" onclick="window.open('http://firestreetpizza.azurewebsites.net')"
-                            href="#FireStreetPizza" aria-label="Visit FireStreetPizza website (opens in a new window)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;FireStreetPizza</h3>
+                        <h3 class="mb-0"><a class="social-icon" href="https://firestreetpizza.azurewebsites.net" target="_blank" rel="noopener noreferrer" aria-label="FireStreetPizza website (opens in a new tab)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;FireStreetPizza</h3>
                         <div class="subheading mb-3"></div>
                         <p>Realtime game for firestreet pizza resturaunt located at USA</p>
                     </div>
@@ -211,8 +230,7 @@
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0"><a class="social-icon" onclick="window.open('https://app.zipclass.live')"
-                            href="#ZipClass" aria-label="Visit ZipClass website (opens in a new window)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;ZipClass</h3>
+                        <h3 class="mb-0"><a class="social-icon" href="https://app.zipclass.live" target="_blank" rel="noopener noreferrer" aria-label="ZipClass website (opens in a new tab)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;ZipClass</h3>
                         <div class="subheading mb-3"></div>
                         <p>Zipclass is a platform that will empower instructors and bring their exercise routines, workouts, and classes to people wherever they are.</p>
                     </div>
@@ -220,8 +238,7 @@
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0"><a class="social-icon" onclick="window.open('https://lms.learningupgrade.com')"
-                            href="#LearningUpgrade" aria-label="Visit Learning Upgrade website (opens in a new window)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;Learning Upgrade</h3>
+                        <h3 class="mb-0"><a class="social-icon" href="https://lms.learningupgrade.com" target="_blank" rel="noopener noreferrer" aria-label="Learning Upgrade website (opens in a new tab)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;Learning Upgrade</h3>
                         <div class="subheading mb-3"></div>
                         <p>Helping Learners Upskill in English, Math, and Job Skills.</p>
                     </div>
@@ -229,8 +246,7 @@
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0"><a class="social-icon" onclick="window.open('https://visitgilgitbaltistan.gov.pk')"
-                            href="#VisitGilgit" aria-label="Visit Tourism Management System for Gilgit Baltistan website (opens in a new window)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;Tourism Management System for Gilgit Baltistan</h3>
+                        <h3 class="mb-0"><a class="social-icon" href="https://visitgilgitbaltistan.gov.pk" target="_blank" rel="noopener noreferrer" aria-label="Visit Gilgit Baltistan website (opens in a new tab)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;Tourism Management System for Gilgit Baltistan</h3>
                         <div class="subheading mb-3"></div>
                         <p>Gilgit-Baltistan (GB) is a very sparsely populated high-mountain area in the north of Pakistan. Its natural environment is usually described with superlatives – the longest glaciers outside of the polar region, home of the world’s second highest peak (K2) and four more eight-thousanders. GB is largely a high-mountain desert; geologically, it spreads over three high mountain systems: Himalaya, Karakorum and Hindukush. The society of GB is diverse in terms of language, religion and ethnicity.</p>
                     </div>
@@ -238,8 +254,7 @@
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0"><a class="social-icon" onclick="window.open('https://wwwtags.info')"
-                                href="#WWWGaming" aria-label="Visit WWW Gaming website (opens in a new window)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;WWW Gaming</h3>
+                        <h3 class="mb-0"><a class="social-icon" href="https://wwwtags.info" target="_blank" rel="noopener noreferrer" aria-label="WWW Gaming website (opens in a new tab)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;WWW Gaming</h3>
                         <div class="subheading mb-3"></div>
                         <p>WWW Gaming is a gaming website providing in-game clans intel in different forms. Cloudflare
                             Access makes Admin Area highest secure area in site(Feel free to try DDOS/SQL
@@ -360,25 +375,35 @@
             });
             let experiencesSeparator = '|||'
             let tagsSeparator = ','
-            $.get("/data/experiences", (response) => {
-                let listItemTemplate = '<li><span class="fa-li"><i class="fas fa-check" aria-hidden="true"></i></span>';
-                listItemTemplate += response.split('\n')
-                    .join('</li>' + listItemTemplate);
-                $('[loader-experiences]').removeClass('d-inline-block');
-                $('[loader-experiences]').hide();
-                $('[EXPERIENCES]').html(listItemTemplate);
-            })
-            $.get("/data/tags", (response) => {
-                $('[loader-cloud]').removeClass('d-inline-block');
-                $('[loader-cloud]').hide();
-                $("[CLOUD]").jQWCloud({
-                    words: response.split('\n').map((element, index) => { return { word: element, weight: Math.floor((Math.random() * 100) + 50) } }),
-                    minFont: 2,
-                    maxFont: 45,
-                    padding_left: 1,
-                    word_common_classes: "WordClass"
-                });
-            });
+            const toLines = (text) => String(text).split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+            const hideLoader = (selector) => $(selector).removeClass('d-inline-block').hide();
+
+            $.get("data/experiences.txt")
+                .done((response) => {
+                    const items = toLines(response).map((line) =>
+                        $('<li>').append('<span class="fa-li"><i class="fas fa-check" aria-hidden="true"></i></span>', document.createTextNode(line)));
+                    $('[EXPERIENCES]').empty().append(items);
+                })
+                .fail(() => {
+                    $('[EXPERIENCES]').html('<li>Experience details are unavailable right now.</li>');
+                })
+                .always(() => hideLoader('[loader-experiences]'));
+
+            $.get("data/tags.txt")
+                .done((response) => {
+                    $("[CLOUD]").jQWCloud({
+                        words: toLines(response).map((element) => ({ word: element, weight: Math.floor((Math.random() * 100) + 50) })),
+                        minFont: 2,
+                        maxFont: 45,
+                        padding_left: 1,
+                        word_common_classes: "WordClass"
+                    });
+                })
+                .fail(() => {
+                    $("[CLOUD]").hide();
+                    $('[cloud-fallback]').removeClass('d-none');
+                })
+                .always(() => hideLoader('[loader-cloud]'));
         });
         var dev_signature = `
                 :+shdmNNNNmdhs+:
