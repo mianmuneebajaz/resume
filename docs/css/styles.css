@@ -10737,7 +10737,7 @@ body::-webkit-scrollbar-thumb {
   font-size: 1.2rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (hover: none), (pointer: coarse) {
   .kbd-hint {
     display: none;
   }
@@ -10745,6 +10745,46 @@ body::-webkit-scrollbar-thumb {
   .keyboard-shortcuts-info {
     display: none;
   }
+}
+
+/* Skills result count and empty state */
+.skills-status {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 15px 0;
+}
+
+.skills-empty {
+  text-align: center;
+  padding: 40px 20px;
+  border: 2px dashed #e0e0e0;
+  border-radius: 15px;
+  color: #666;
+}
+
+.skills-empty[hidden] {
+  display: none;
+}
+
+.skills-empty-message {
+  margin-bottom: 15px;
+}
+
+.skills-reset-btn {
+  background: transparent;
+  border: 2px solid #bd5d38;
+  color: #bd5d38;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.skills-reset-btn:hover,
+.skills-reset-btn:focus {
+  background: #bd5d38;
+  color: white;
 }
 
 /* Skills Visualization Wrapper */

@@ -322,14 +322,36 @@ const skillsDatabase = [
     }
 ];
 
-// Category mapping for filtering
+// Category mapping for filtering: filter button slug -> skill categories shown.
+// Full stack skills span both frontend and backend.
 const categoryMapping = {
     'all': ['frontend', 'backend', 'cloud', 'database', 'tools', 'fullstack'],
-    'frontend': ['frontend'],
+    'frontend': ['frontend', 'fullstack'],
     'backend': ['backend', 'fullstack'],
     'cloud': ['cloud'],
     'database': ['database'],
     'tools': ['tools']
+};
+
+// Human readable labels for category slugs
+const categoryLabels = {
+    'all': 'All Skills',
+    'frontend': 'Frontend',
+    'backend': 'Backend',
+    'fullstack': 'Full Stack',
+    'cloud': 'Cloud & DevOps',
+    'database': 'Database',
+    'tools': 'Tools & Others'
+};
+
+function getCategoryLabel(slug) {
+    return categoryLabels[slug] || slug;
+}
+
+// Single source of truth for the skills grid
+const skillsState = {
+    category: 'all',
+    query: ''
 };
 
 // Initialize Skills Section
@@ -337,7 +359,17 @@ function initializeSkillsSection() {
     renderSkillCards(skillsDatabase);
     setupFilterButtons();
     setupSearchFunctionality();
+    updateDerivedStats();
+    applyFilters();
     animateStatsCounter();
+}
+
+// Stats that can be computed from data instead of hardcoded
+function updateDerivedStats() {
+    const techStat = document.querySelector('.stat-value[data-stat="technologies"]');
+    if (techStat) {
+        techStat.setAttribute('data-target', skillsDatabase.length);
+    }
 }
 
 // Animate stats counter
@@ -390,10 +422,10 @@ function renderSkillCards(skills) {
         card.setAttribute('data-aos-delay', (index % 6) * 100);
 
         card.innerHTML = `
-            <div class="skill-category">${skill.category}</div>
+            <div class="skill-category">${getCategoryLabel(skill.category)}</div>
             <div class="skill-header">
                 <h3 class="skill-name">${skill.name}</h3>
-                <i class="${skill.icon} skill-icon"></i>
+                <i class="${skill.icon} skill-icon" aria-hidden="true"></i>
             </div>
             <p class="skill-description">${skill.description}</p>
         `;
@@ -402,72 +434,102 @@ function renderSkillCards(skills) {
     });
 }
 
-// Setup filter buttons
-function setupFilterButtons() {
-    const filterButtons = document.querySelectorAll('.skill-filter-btn');
+// Does a skill match the current state?
+function skillMatches(skill, state) {
+    const allowed = categoryMapping[state.category] || [];
+    if (!allowed.includes(skill.category)) return false;
 
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
+    const query = state.query.trim().toLowerCase();
+    if (!query) return true;
 
-            // Get selected category
-            const selectedCategory = this.getAttribute('data-category');
-
-            // Filter skills
-            filterSkills(selectedCategory);
-        });
-    });
+    const haystack = [
+        skill.name,
+        skill.description,
+        getCategoryLabel(skill.category)
+    ].join(' ').toLowerCase();
+    return haystack.includes(query);
 }
 
-// Filter skills by category
-function filterSkills(category) {
-    const allowedCategories = categoryMapping[category] || [];
-    const allCards = document.querySelectorAll('.skill-card');
+// Apply category + search together and update UI feedback
+function applyFilters() {
+    const cards = document.querySelectorAll('#skillsGrid .skill-card');
+    let visible = 0;
 
-    allCards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
+    cards.forEach((card, index) => {
+        const skill = skillsDatabase[index];
+        const match = skill ? skillMatches(skill, skillsState) : false;
+        card.classList.toggle('hidden', !match);
+        if (match) visible++;
+    });
 
-        if (category === 'all' || allowedCategories.includes(cardCategory)) {
-            card.classList.remove('hidden');
-        } else {
-            card.classList.add('hidden');
+    // Sync filter buttons
+    document.querySelectorAll('.skill-filter-btn').forEach(btn => {
+        const isActive = btn.getAttribute('data-category') === skillsState.category;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+    });
+
+    const query = skillsState.query.trim();
+    const categoryText = skillsState.category === 'all'
+        ? ''
+        : ` in ${getCategoryLabel(skillsState.category)}`;
+    const queryText = query ? ` matching "${query}"` : '';
+
+    const status = document.getElementById('skillsStatus');
+    if (status) {
+        const noun = visible === 1 ? 'skill' : 'skills';
+        status.textContent = `Showing ${visible} ${noun}${categoryText}${queryText}`;
+    }
+
+    const empty = document.getElementById('skillsEmpty');
+    if (empty) {
+        const message = empty.querySelector('.skills-empty-message');
+        if (message) {
+            message.textContent = `No skills found${categoryText}${queryText}.`;
         }
+        empty.hidden = visible !== 0;
+    }
+}
+
+function setSkillsCategory(category) {
+    if (!categoryMapping[category]) return;
+    skillsState.category = category;
+    applyFilters();
+}
+
+function setSkillsQuery(query) {
+    skillsState.query = query;
+    applyFilters();
+}
+
+// Setup filter buttons
+function setupFilterButtons() {
+    document.querySelectorAll('.skill-filter-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            setSkillsCategory(this.getAttribute('data-category'));
+        });
     });
 }
 
 // Setup search functionality
 function setupSearchFunctionality() {
     const searchInput = document.getElementById('skillSearch');
-
     if (!searchInput) return;
 
     searchInput.addEventListener('input', function() {
-        const searchTerm = this.value.toLowerCase();
-        const allCards = document.querySelectorAll('.skill-card');
-
-        allCards.forEach(card => {
-            const skillName = card.querySelector('.skill-name').textContent.toLowerCase();
-            const skillDescription = card.querySelector('.skill-description').textContent.toLowerCase();
-
-            if (skillName.includes(searchTerm) || skillDescription.includes(searchTerm)) {
-                card.classList.remove('hidden');
-            } else {
-                card.classList.add('hidden');
-            }
-        });
-
-        // If search is empty, reapply the active filter
-        if (searchTerm === '') {
-            const activeFilter = document.querySelector('.skill-filter-btn.active');
-            if (activeFilter) {
-                const category = activeFilter.getAttribute('data-category');
-                filterSkills(category);
-            }
-        }
+        setSkillsQuery(this.value);
     });
+
+    const resetBtn = document.getElementById('skillsReset');
+    if (resetBtn) {
+        resetBtn.addEventListener('click', function() {
+            searchInput.value = '';
+            skillsState.query = '';
+            skillsState.category = 'all';
+            applyFilters();
+            searchInput.focus();
+        });
+    }
 }
 
 
