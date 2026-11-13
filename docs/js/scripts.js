@@ -3,6 +3,24 @@
     * Copyright 2013-2020 Start Bootstrap
     * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-resume/blob/master/LICENSE)
     */
+// Shared check for the user's reduced motion preference
+function prefersReducedMotion() {
+    return !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+}
+
+// Move keyboard and screen reader focus to a scroll target without jumping
+function focusTarget(el) {
+    if (!el) return;
+    if (!el.hasAttribute("tabindex") && !/^(A|BUTTON|INPUT|SELECT|TEXTAREA)$/.test(el.tagName)) {
+        el.setAttribute("tabindex", "-1");
+    }
+    try {
+        el.focus({ preventScroll: true });
+    } catch (err) {
+        el.focus();
+    }
+}
+
     (function ($) {
     "use strict"; // Start of use strict
 
@@ -18,13 +36,19 @@
                 ? target
                 : $("[name=" + this.hash.slice(1) + "]");
             if (target.length) {
-                $("html, body").animate(
-                    {
-                        scrollTop: target.offset().top,
-                    },
-                    1000,
-                    "easeInOutExpo"
-                );
+                var scrollTop = target.offset().top;
+                if (prefersReducedMotion()) {
+                    $("html, body").stop().scrollTop(scrollTop);
+                    focusTarget(target[0]);
+                } else {
+                    $("html, body")
+                        .stop()
+                        .animate({ scrollTop: scrollTop }, 1000, "easeInOutExpo")
+                        .promise()
+                        .done(function () {
+                            focusTarget(target[0]);
+                        });
+                }
                 return false;
             }
         }
@@ -340,8 +364,10 @@ function initializeSkillsSection() {
     animateStatsCounter();
 }
 
-// Animate stats counter
+// Animate stats counter. The HTML already holds the real values, so
+// with reduced motion (or no IntersectionObserver) we leave them as is.
 function animateStatsCounter() {
+    if (prefersReducedMotion() || !('IntersectionObserver' in window)) return;
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -393,7 +419,7 @@ function renderSkillCards(skills) {
             <div class="skill-category">${skill.category}</div>
             <div class="skill-header">
                 <h3 class="skill-name">${skill.name}</h3>
-                <i class="${skill.icon} skill-icon"></i>
+                <i class="${skill.icon} skill-icon" aria-hidden="true"></i>
             </div>
             <p class="skill-description">${skill.description}</p>
         `;
@@ -409,9 +435,13 @@ function setupFilterButtons() {
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             // Remove active class from all buttons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
+            filterButtons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-pressed', 'false');
+            });
             // Add active class to clicked button
             this.classList.add('active');
+            this.setAttribute('aria-pressed', 'true');
 
             // Get selected category
             const selectedCategory = this.getAttribute('data-category');
@@ -436,6 +466,15 @@ function filterSkills(category) {
             card.classList.add('hidden');
         }
     });
+    announceSkillCount();
+}
+
+// Tell screen reader users how many skills are visible after filtering
+function announceSkillCount() {
+    const status = document.getElementById('skillsStatus');
+    if (!status) return;
+    const visible = document.querySelectorAll('.skill-card:not(.hidden)').length;
+    status.textContent = visible === 1 ? '1 skill shown' : visible + ' skills shown';
 }
 
 // Setup search functionality
@@ -466,6 +505,8 @@ function setupSearchFunctionality() {
                 const category = activeFilter.getAttribute('data-category');
                 filterSkills(category);
             }
+        } else {
+            announceSkillCount();
         }
     });
 }
@@ -496,10 +537,12 @@ function setupKeyboardShortcuts() {
             if (button) {
                 button.click();
                 // Visual feedback
-                button.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    button.style.transform = '';
-                }, 100);
+                if (!prefersReducedMotion()) {
+                    button.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        button.style.transform = '';
+                    }, 100);
+                }
             }
         }
 
@@ -518,7 +561,7 @@ function setupKeyboardShortcuts() {
 function enhanceSkillCards() {
     document.addEventListener('click', function(e) {
         const skillCard = e.target.closest('.skill-card');
-        if (skillCard) {
+        if (skillCard && !prefersReducedMotion()) {
             // Add ripple effect
             const ripple = document.createElement('span');
             ripple.className = 'card-ripple';
@@ -526,7 +569,7 @@ function enhanceSkillCards() {
                 position: absolute;
                 width: 20px;
                 height: 20px;
-                background: rgba(189, 93, 56, 0.3);
+                background: rgba(168, 78, 43, 0.3);
                 border-radius: 50%;
                 pointer-events: none;
                 animation: ripple-animation 0.6s ease-out;

@@ -24,23 +24,16 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <script async src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-    <style>
-        [cloud] {
-            filter:blur(3px);
-        }
-        [cloud]:hover {
-            filter:blur(0px);
-        }
-    </style>
 </head>
 
 <body id="page-top">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav" aria-label="Primary">
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
             <span class="d-block d-lg-none">Muneeb Ajaz</span>
             <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
-                    src="new.png" alt="" /></span>
+                    src="new.png" alt="Muneeb Ajaz" /></span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
@@ -56,11 +49,11 @@
         </div>
     </nav>
     <!-- Page Content-->
-    <div class="container-fluid p-0">
+    <main class="container-fluid p-0" id="main-content" tabindex="-1">
         <!-- About-->
-        <section class="resume-section" id="about">
+        <section class="resume-section" id="about" aria-labelledby="about-heading">
             <div class="resume-section-content">
-                <h1 class="mb-0">
+                <h1 class="mb-0" id="about-heading">
                     Muneeb
                     <span class="text-primary">Ajaz</span>
                 </h1>
@@ -78,91 +71,91 @@
                 </p>
                 <div class="social-icons">
                     <a class="social-icon" onclick="window.open('https://www.linkedin.com/in/muneebajaz/')"
-                        href="#LinkedInProfile"><i class="fab fa-linkedin-in"></i></a>
+                        href="#LinkedInProfile" aria-label="LinkedIn profile (opens in a new window)"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
                     <a class="social-icon" onclick="window.open('https://github.com/mianmuneebajaz')"
-                        href="#GithubProfile"><i class="fab fa-github"></i></a>
+                        href="#GithubProfile" aria-label="GitHub profile (opens in a new window)"><i class="fab fa-github" aria-hidden="true"></i></a>
                 </div>
                 <div style="height: 150px;" CLOUD></div>
             </div>
         </section>
         <hr class="m-0" />
         <!-- Skills-->
-        <section class="resume-section" style="max-width: 100% !important;" id="skills">
+        <section class="resume-section" style="max-width: 100% !important;" id="skills" aria-labelledby="skills-heading">
             <div class="resume-section-content">
-                <h2 class="mb-5">Skills</h2>
+                <h2 class="mb-5" id="skills-heading">Skills</h2>
                 <div class="subheading mb-3">Programming Languages, Tools & Approaches</div>
 
                 <!-- Skills Stats -->
                 <div class="skills-stats-container">
                     <div class="skill-stat-card">
-                        <div class="stat-icon"><i class="fas fa-code"></i></div>
-                        <div class="stat-value" data-target="40">0</div>
+                        <div class="stat-icon"><i class="fas fa-code" aria-hidden="true"></i></div>
+                        <div class="stat-value" data-target="40">40</div>
                         <div class="stat-label">Technologies</div>
                     </div>
                     <div class="skill-stat-card">
-                        <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
-                        <div class="stat-value" data-target="53">0</div>
+                        <div class="stat-icon"><i class="fas fa-project-diagram" aria-hidden="true"></i></div>
+                        <div class="stat-value" data-target="53">53</div>
                         <div class="stat-label">Live Projects</div>
                     </div>
                     <div class="skill-stat-card">
-                        <div class="stat-icon"><i class="fas fa-award"></i></div>
-                        <div class="stat-value" data-target="6">0</div>
+                        <div class="stat-icon"><i class="fas fa-award" aria-hidden="true"></i></div>
+                        <div class="stat-value" data-target="6">6</div>
                         <div class="stat-label">Years Experience</div>
                     </div>
                     <div class="skill-stat-card">
-                        <div class="stat-icon"><i class="fas fa-certificate"></i></div>
-                        <div class="stat-value" data-target="5">0</div>
+                        <div class="stat-icon"><i class="fas fa-certificate" aria-hidden="true"></i></div>
+                        <div class="stat-value" data-target="5">5</div>
                         <div class="stat-label">Certifications</div>
                     </div>
                 </div>
 
                 <!-- Skills Filter Tabs -->
-                <div class="skills-filter-container mb-4">
-                    <button class="skill-filter-btn active" data-category="all">All Skills <span class="kbd-hint">1</span></button>
-                    <button class="skill-filter-btn" data-category="frontend">Frontend <span class="kbd-hint">2</span></button>
-                    <button class="skill-filter-btn" data-category="backend">Backend <span class="kbd-hint">3</span></button>
-                    <button class="skill-filter-btn" data-category="cloud">Cloud & DevOps <span class="kbd-hint">4</span></button>
-                    <button class="skill-filter-btn" data-category="database">Database <span class="kbd-hint">5</span></button>
-                    <button class="skill-filter-btn" data-category="tools">Tools & Others <span class="kbd-hint">6</span></button>
+                <div class="skills-filter-container mb-4" role="group" aria-label="Filter skills by category">
+                    <button class="skill-filter-btn active" data-category="all" aria-pressed="true" aria-keyshortcuts="1">All Skills <span class="kbd-hint" aria-hidden="true">1</span></button>
+                    <button class="skill-filter-btn" data-category="frontend" aria-pressed="false" aria-keyshortcuts="2">Frontend <span class="kbd-hint" aria-hidden="true">2</span></button>
+                    <button class="skill-filter-btn" data-category="backend" aria-pressed="false" aria-keyshortcuts="3">Backend <span class="kbd-hint" aria-hidden="true">3</span></button>
+                    <button class="skill-filter-btn" data-category="cloud" aria-pressed="false" aria-keyshortcuts="4">Cloud & DevOps <span class="kbd-hint" aria-hidden="true">4</span></button>
+                    <button class="skill-filter-btn" data-category="database" aria-pressed="false" aria-keyshortcuts="5">Database <span class="kbd-hint" aria-hidden="true">5</span></button>
+                    <button class="skill-filter-btn" data-category="tools" aria-pressed="false" aria-keyshortcuts="6">Tools & Others <span class="kbd-hint" aria-hidden="true">6</span></button>
                 </div>
 
                 <!-- Keyboard Shortcuts Info -->
                 <div class="keyboard-shortcuts-info">
-                    <i class="fas fa-keyboard"></i>
+                    <i class="fas fa-keyboard" aria-hidden="true"></i>
                     <span>Press 1-6 to filter | Press / to search</span>
                 </div>
 
                 <!-- Skills Visualization Container -->
                 <div class="skills-visualization-wrapper">
                     <!-- Orbiting Skills Animation -->
-                    <div class="skills-orbit-container">
+                    <div class="skills-orbit-container" role="group" aria-label="Core tech stack">
                         <div class="central-hub">
-                            <i class="fas fa-code"></i>
+                            <i class="fas fa-code" aria-hidden="true"></i>
                             <span class="hub-label">Tech Stack</span>
                         </div>
                         <div class="orbit orbit-1">
-                            <div class="orbit-skill" data-skill="JavaScript">
-                                <i class="fab fa-js"></i>
+                            <div class="orbit-skill" data-skill="JavaScript" tabindex="0" role="img" aria-label="JavaScript">
+                                <i class="fab fa-js" aria-hidden="true"></i>
                             </div>
-                            <div class="orbit-skill" data-skill="React">
-                                <i class="fab fa-react"></i>
+                            <div class="orbit-skill" data-skill="React" tabindex="0" role="img" aria-label="React">
+                                <i class="fab fa-react" aria-hidden="true"></i>
                             </div>
-                            <div class="orbit-skill" data-skill="Node.js">
-                                <i class="fab fa-node-js"></i>
+                            <div class="orbit-skill" data-skill="Node.js" tabindex="0" role="img" aria-label="Node.js">
+                                <i class="fab fa-node-js" aria-hidden="true"></i>
                             </div>
                         </div>
                         <div class="orbit orbit-2">
-                            <div class="orbit-skill" data-skill="AWS">
-                                <i class="fab fa-aws"></i>
+                            <div class="orbit-skill" data-skill="AWS" tabindex="0" role="img" aria-label="AWS">
+                                <i class="fab fa-aws" aria-hidden="true"></i>
                             </div>
-                            <div class="orbit-skill" data-skill=".NET">
-                                <i class="fas fa-project-diagram"></i>
+                            <div class="orbit-skill" data-skill=".NET" tabindex="0" role="img" aria-label=".NET">
+                                <i class="fas fa-project-diagram" aria-hidden="true"></i>
                             </div>
-                            <div class="orbit-skill" data-skill="Docker">
-                                <i class="fab fa-docker"></i>
+                            <div class="orbit-skill" data-skill="Docker" tabindex="0" role="img" aria-label="Docker">
+                                <i class="fab fa-docker" aria-hidden="true"></i>
                             </div>
-                            <div class="orbit-skill" data-skill="MongoDB">
-                                <i class="fas fa-database"></i>
+                            <div class="orbit-skill" data-skill="MongoDB" tabindex="0" role="img" aria-label="MongoDB">
+                                <i class="fas fa-database" aria-hidden="true"></i>
                             </div>
                         </div>
                     </div>
@@ -170,9 +163,10 @@
                     <!-- Skills Grid -->
                     <div class="skills-grid-container">
                         <div class="skills-search-box mb-3">
-                            <i  style="top: 50% !important; left: 15px !important;position: absolute; transform: translateY(-50%) !important;" class="fas fa-search"></i>
-                            <input type="text" id="skillSearch" placeholder="Search skills..." />
+                            <i  style="top: 50% !important; left: 15px !important;position: absolute; transform: translateY(-50%) !important;" class="fas fa-search" aria-hidden="true"></i>
+                            <input type="text" id="skillSearch" placeholder="Search skills..." aria-label="Search skills" aria-keyshortcuts="/" aria-controls="skillsGrid" />
                         </div>
+                        <p id="skillsStatus" class="sr-only" role="status" aria-live="polite"></p>
                         <div class="skills-grid" id="skillsGrid">
                             <!-- Skills will be dynamically loaded here -->
                         </div>
@@ -185,13 +179,13 @@
         </section>
         <hr class="m-0" />
         <!-- Experience-->
-        <section class="resume-section" id="experience">
+        <section class="resume-section" id="experience" aria-labelledby="experience-heading">
             <div class="resume-section-content">
-                <h2 class="mb-5">Experience</h2>
+                <h2 class="mb-5" id="experience-heading">Experience</h2>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
                         <h3 class="mb-0"><a class="social-icon" onclick="window.open('https://www.shuttle.health/')"
-                            href="#ShuttleHealth"><i class="fa fa-link"></i></a>&nbsp;Shuttle Health</h3>
+                            href="#ShuttleHealth" aria-label="Visit Shuttle Health website (opens in a new window)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;Shuttle Health</h3>
                         <div class="subheading mb-3">Healthcare Platform</div>
                         <p>Shuttle Health is focused on digitizing the documentation, communication and workflow between provider, supplier and patient.</p>
                     </div>
@@ -200,7 +194,7 @@
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
                         <h3 class="mb-0"><a class="social-icon" onclick="window.open('http://gselingo.com')"
-                            href="#gselingo"><i class="fa fa-link"></i></a>&nbsp;GSE Lingo</h3>
+                            href="#gselingo" aria-label="Visit GSE Lingo website (opens in a new window)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;GSE Lingo</h3>
                         <div class="subheading mb-3"></div>
                         <p>Bingo is a fun game of chance that anyone can play. The game is played on a scorecard that's made up of 25 squares.</p>
                     </div>
@@ -209,7 +203,7 @@
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
                         <h3 class="mb-0"><a class="social-icon" onclick="window.open('http://firestreetpizza.azurewebsites.net')"
-                            href="#FireStreetPizza"><i class="fa fa-link"></i></a>&nbsp;FireStreetPizza</h3>
+                            href="#FireStreetPizza" aria-label="Visit FireStreetPizza website (opens in a new window)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;FireStreetPizza</h3>
                         <div class="subheading mb-3"></div>
                         <p>Realtime game for firestreet pizza resturaunt located at USA</p>
                     </div>
@@ -218,7 +212,7 @@
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
                         <h3 class="mb-0"><a class="social-icon" onclick="window.open('https://app.zipclass.live')"
-                            href="#ZipClass"><i class="fa fa-link"></i></a>&nbsp;ZipClass</h3>
+                            href="#ZipClass" aria-label="Visit ZipClass website (opens in a new window)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;ZipClass</h3>
                         <div class="subheading mb-3"></div>
                         <p>Zipclass is a platform that will empower instructors and bring their exercise routines, workouts, and classes to people wherever they are.</p>
                     </div>
@@ -227,7 +221,7 @@
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
                         <h3 class="mb-0"><a class="social-icon" onclick="window.open('https://lms.learningupgrade.com')"
-                            href="#LearningUpgrade"><i class="fa fa-link"></i></a>&nbsp;Learning Upgrade</h3>
+                            href="#LearningUpgrade" aria-label="Visit Learning Upgrade website (opens in a new window)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;Learning Upgrade</h3>
                         <div class="subheading mb-3"></div>
                         <p>Helping Learners Upskill in English, Math, and Job Skills.</p>
                     </div>
@@ -236,7 +230,7 @@
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
                         <h3 class="mb-0"><a class="social-icon" onclick="window.open('https://visitgilgitbaltistan.gov.pk')"
-                            href="#VisitGilgit"><i class="fa fa-link"></i></a>&nbsp;Tourism Management System for Gilgit Baltistan</h3>
+                            href="#VisitGilgit" aria-label="Visit Tourism Management System for Gilgit Baltistan website (opens in a new window)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;Tourism Management System for Gilgit Baltistan</h3>
                         <div class="subheading mb-3"></div>
                         <p>Gilgit-Baltistan (GB) is a very sparsely populated high-mountain area in the north of Pakistan. Its natural environment is usually described with superlatives – the longest glaciers outside of the polar region, home of the world’s second highest peak (K2) and four more eight-thousanders. GB is largely a high-mountain desert; geologically, it spreads over three high mountain systems: Himalaya, Karakorum and Hindukush. The society of GB is diverse in terms of language, religion and ethnicity.</p>
                     </div>
@@ -245,7 +239,7 @@
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
                         <h3 class="mb-0"><a class="social-icon" onclick="window.open('https://wwwtags.info')"
-                                href="#WWWGaming"><i class="fa fa-link"></i></a>&nbsp;WWW Gaming</h3>
+                                href="#WWWGaming" aria-label="Visit WWW Gaming website (opens in a new window)"><i class="fa fa-link" aria-hidden="true"></i></a>&nbsp;WWW Gaming</h3>
                         <div class="subheading mb-3"></div>
                         <p>WWW Gaming is a gaming website providing in-game clans intel in different forms. Cloudflare
                             Access makes Admin Area highest secure area in site(Feel free to try DDOS/SQL
@@ -281,9 +275,9 @@
         </section>
         <hr class="m-0" />
         <!-- Education-->
-        <section class="resume-section" id="education">
+        <section class="resume-section" id="education" aria-labelledby="education-heading">
             <div class="resume-section-content">
-                <h2 class="mb-5">Education</h2>
+                <h2 class="mb-5" id="education-heading">Education</h2>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
                         <h3 class="mb-0">Superior University</h3>
@@ -303,9 +297,9 @@
         </section>
         <hr class="m-0" />
         <!-- Contact -->
-        <section class="resume-section" id="contact">
+        <section class="resume-section" id="contact" aria-labelledby="contact-heading">
             <div class="resume-section-content">
-                <h2>Contact</h2>
+                <h2 id="contact-heading">Contact</h2>
                 <form id="contactForm" class="col-12 col-md-8 col-lg-6 mx-auto" action="#" method="post" novalidate>
                     <div id="contactFeedback" class="alert d-none" role="status" aria-live="polite"></div>
                     <div class="form-group">
@@ -313,7 +307,7 @@
                         <div class="input-group">
                             <div class="input-group-prepend">
                                 <div class="input-group-text">
-                                    <i class="fa fa-address-card"></i>
+                                    <i class="fa fa-address-card" aria-hidden="true"></i>
                                 </div>
                             </div>
                             <input id="email" name="email" placeholder="abc@example.com" type="email" autocomplete="email" required="required"
@@ -331,7 +325,7 @@
                 </form>
             </div>
         </section>
-    </div>
+    </main>
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
@@ -367,7 +361,7 @@
             let experiencesSeparator = '|||'
             let tagsSeparator = ','
             $.get("/data/experiences", (response) => {
-                let listItemTemplate = '<li><span class="fa-li"><i class="fas fa-check"></i></span>';
+                let listItemTemplate = '<li><span class="fa-li"><i class="fas fa-check" aria-hidden="true"></i></span>';
                 listItemTemplate += response.split('\n')
                     .join('</li>' + listItemTemplate);
                 $('[loader-experiences]').removeClass('d-inline-block');
