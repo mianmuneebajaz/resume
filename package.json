@@ -1,0 +1,20 @@
+{
+  "name": "mianmuneebajaz-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static portfolio site for Muneeb Ajaz, served from docs/",
+  "license": "GPL-3.0",
+  "type": "module",
+  "scripts": {
+    "prerender": "node scripts/prerender.mjs",
+    "prerender:check": "node scripts/prerender.mjs --check",
+    "build": "node scripts/prerender.mjs && node scripts/build.mjs",
+    "serve": "npx --yes http-server docs -p 5501 -c-1"
+  },
+  "devDependencies": {
+    "@fortawesome/fontawesome-free": "5.13.0",
+    "csso": "^5.0.5",
+    "purgecss": "^7.0.2",
+    "subset-font": "^2.4.0"
+  }
+}

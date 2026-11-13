@@ -25,9 +25,10 @@
     <meta property="og:title" content="Muneeb Ajaz | Full Stack Software Engineer" />
     <meta property="og:description" content="Muneeb Ajaz is a full stack software engineer in Lahore, Pakistan, building scalable apps with .NET, Node.js, React and AWS. View skills and projects." />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:image" content="https://mianmuneebajaz.com/assets/img/portfolio.png" />
-    <meta property="og:image:width" content="820" />
-    <meta property="og:image:height" content="332" />
+    <meta property="og:image" content="https://mianmuneebajaz.com/assets/img/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="&quot;My Portfolio&quot; handwritten logo for Muneeb Ajaz" />
     <meta property="profile:first_name" content="Muneeb" />
     <meta property="profile:last_name" content="Ajaz" />
@@ -35,7 +36,7 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Muneeb Ajaz | Full Stack Software Engineer" />
     <meta name="twitter:description" content="Muneeb Ajaz is a full stack software engineer in Lahore, Pakistan, building scalable apps with .NET, Node.js, React and AWS. View skills and projects." />
-    <meta name="twitter:image" content="https://mianmuneebajaz.com/assets/img/portfolio.png" />
+    <meta name="twitter:image" content="https://mianmuneebajaz.com/assets/img/og-image.jpg" />
     <meta name="twitter:image:alt" content="&quot;My Portfolio&quot; handwritten logo for Muneeb Ajaz" />
     <script type="application/ld+json">
     {
@@ -45,7 +46,7 @@
         "name": "Muneeb Ajaz",
         "alternateName": "Muhammad Muneeb Ajaz",
         "url": "https://mianmuneebajaz.com/",
-        "image": "https://mianmuneebajaz.com/new.png",
+        "image": "https://mianmuneebajaz.com/assets/img/profile.webp",
         "jobTitle": "Full Stack Software Engineer",
         "description": "Muneeb Ajaz is a full stack software engineer in Lahore, Pakistan, building scalable apps with .NET, Node.js, React and AWS. View skills and projects.",
         "email": "mailto:mianmuneebajaz@gmail.com",
@@ -65,17 +66,18 @@
         ]
     }
     </script>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <!-- Google fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,800;1,400;1,800&family=Saira+Extra+Condensed:wght@500;700&display=swap"
         rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
+    <!-- Icon font subset (built by `npm run build`, see README) -->
+    <link rel="preload" href="webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- Site CSS: Bootstrap + theme + custom styles + icons, purged and minified from src/css by `npm run build`-->
     <link href="css/styles.css" rel="stylesheet" />
-    <!-- Site specific CSS (loaded after the theme so it can override it)-->
-    <link href="css/custom.css" rel="stylesheet" />
-    <script async src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 
 <body id="page-top">
@@ -85,7 +87,7 @@
         <a class="navbar-brand js-scroll-trigger" href="#page-top">
             <span class="d-block d-lg-none">Muneeb Ajaz</span>
             <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
-                    src="new.png" alt="Muneeb Ajaz" /></span>
+                    src="assets/img/profile.webp" width="256" height="261" alt="Muneeb Ajaz" /></span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
@@ -748,82 +750,20 @@
             </div>
         </section>
     </main>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JS (deferred: runs in order after parsing, before DOMContentLoaded)-->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2"
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"
+        integrity="sha384-1CmrxMRARb6aLqgBO7yyAxTOQE2AKb9GfXnEo760AUcUmFx3ibVJJAzGytlQcNXd"
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Third party plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"
+        integrity="sha384-leGYpHE9Tc4N9OwRd98xg6YFpB9shlc/RkilpFi0ljr3QD4tFoFptZvgnnzzwG4Q"
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="assets/JQwcloud.js"></script>
     <!-- Core theme JS-->
-    <script type="text/javascript" src="assets/JQwcloud.js"></script>
-
-    <script src="js/scripts.js"></script>
-    <script>
-        function sleep(seconds) {
-            var e = new Date().getTime() + (seconds * 1000);
-            while (new Date().getTime() <= e) { }
-        }
-        $(function () {
-            // Contact form: no backend on GitHub Pages, so validate and show feedback client side only.
-            $('#contactForm').on('submit', function (e) {
-                e.preventDefault();
-                var form = this;
-                var $feedback = $('#contactFeedback');
-                $feedback.removeClass('d-none alert-success alert-danger');
-                if (!form.checkValidity()) {
-                    $(form).addClass('was-validated');
-                    $feedback.addClass('alert-danger')
-                        .text('Please enter a valid email address and a message.');
-                    return;
-                }
-                $(form).removeClass('was-validated');
-                form.reset();
-                $feedback.addClass('alert-success')
-                    .text('Thanks! Your message has been received. I will get back to you soon.');
-            });
-            let tagsSeparator = ','
-            const toLines = (text) => String(text).split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
-            const hideLoader = (selector) => $(selector).removeClass('d-inline-block').hide();
-
-            $.get("data/tags.txt")
-                .done((response) => {
-                    $("[CLOUD]").jQWCloud({
-                        words: toLines(response).map((element) => ({ word: element, weight: Math.floor((Math.random() * 100) + 50) })),
-                        minFont: 2,
-                        maxFont: 45,
-                        padding_left: 1,
-                        word_common_classes: "WordClass"
-                    });
-                })
-                .fail(() => {
-                    $("[CLOUD]").hide();
-                    $('[cloud-fallback]').removeClass('d-none');
-                })
-                .always(() => hideLoader('[loader-cloud]'));
-        });
-        var dev_signature = `
-                :+shdmNNNNmdhs+:
-            -sdMMMMMMMMMMMMMMMMMMds-
-          omMMMMMMMMMMMMMMMMMMMMMMMMmo
-        oNMMMMMMMMMMMMMMMMMMMMMMMMMMMMNo
-      -mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm-
-      /MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
-    :MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN
-    NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNN
-   oMMMMMMMMMMMMNMMMMMMMMMMMMMNMMMMMMMMMMMMMoN
-   dMMMMMMMMMMMd :MMMMMMMMMMM+ yMMMMMMMMMMMMdN
-   NMMMMMMMMMMMy .dmymMMMNydd- oMMMMMMMMMMMMNN
-   dMMMMMMMMMMMMy:..-sMMMy:..-sMMMMMMMMMMMMMdN
-   oMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMoN
-    NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNN
-    :MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM:
-      /MMMMMMMMMMMM/\/\/\/\/\/\MMMMMMMMMMMM/
-      -mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm-
-        oNMMMMMMMMMMMMMMMMMMMMMMMMMMMMNo
-          omMMMMMMMMMMMMMMMMMMMMMMMMmo
-            -sdMMMMMMMMMMMMMMMMMMds-
-                :+shdmNNNNmdhs+:
-`;
-    </script>
+    <script defer src="js/scripts.js"></script>
 </body>
 
 </html>
