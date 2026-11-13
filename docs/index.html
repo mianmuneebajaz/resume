@@ -18,20 +18,15 @@
     <title>Muneeb Ajaz</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
     <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
-        type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,400;0,800;1,400;1,800&family=Saira+Extra+Condensed:wght@500;700&display=swap"
+        rel="stylesheet" />
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <!-- Site specific CSS (loaded after the theme so it can override it)-->
+    <link href="css/custom.css" rel="stylesheet" />
     <script async src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
-    <style>
-        [cloud] {
-            filter:blur(3px);
-        }
-        [cloud]:hover {
-            filter:blur(0px);
-        }
-    </style>
 </head>
 
 <body id="page-top">
@@ -72,9 +67,9 @@
                 <p class="lead ">Muneeb is a .net specialist, a big fan of DRY architecture.
                     A results-driven, Software Engineer who can think “out of the box.” Strong in design and integration
                     problem-solving skills. Willing to work in a challenging, interesting development environment.
-                    He feel comfortable to work on any Application layer, from database to services to user interfaces
+                    He feels comfortable working on any Application layer, from database to services to user interfaces
                     Supporting legacy systems with backups of all cases, Analysis and design of databases and user
-                    interfaces, designing/improving Software architecture. He loves doing <b>refactoring</b> aswell.
+                    interfaces, designing/improving Software architecture. He loves doing <b>refactoring</b> as well.
                 </p>
                 <div class="social-icons">
                     <a class="social-icon" onclick="window.open('https://www.linkedin.com/in/muneebajaz/')"
@@ -87,7 +82,7 @@
         </section>
         <hr class="m-0" />
         <!-- Skills-->
-        <section class="resume-section" style="max-width: 100% !important;" id="skills">
+        <section class="resume-section" id="skills">
             <div class="resume-section-content">
                 <h2 class="mb-5">Skills</h2>
                 <div class="subheading mb-3">Programming Languages, Tools & Approaches</div>
@@ -170,7 +165,7 @@
                     <!-- Skills Grid -->
                     <div class="skills-grid-container">
                         <div class="skills-search-box mb-3">
-                            <i  style="top: 50% !important; left: 15px !important;position: absolute; transform: translateY(-50%) !important;" class="fas fa-search"></i>
+                            <i class="fas fa-search" aria-hidden="true"></i>
                             <input type="text" id="skillSearch" placeholder="Search skills..." />
                         </div>
                         <div class="skills-grid" id="skillsGrid">
@@ -190,84 +185,76 @@
                 <h2 class="mb-5">Experience</h2>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0"><a class="social-icon" onclick="window.open('https://www.shuttle.health/')"
-                            href="#ShuttleHealth"><i class="fa fa-link"></i></a>&nbsp;Shuttle Health</h3>
+                        <h3 class="mb-0"><a class="project-link" title="Visit website" onclick="window.open('https://www.shuttle.health/')"
+                            href="#ShuttleHealth"><i class="fa fa-link"></i></a>Shuttle Health</h3>
                         <div class="subheading mb-3">Healthcare Platform</div>
                         <p>Shuttle Health is focused on digitizing the documentation, communication and workflow between provider, supplier and patient.</p>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-white p-1 rounded-sm bg-success"> 2019 - Present </span></div>
+                    <div class="flex-shrink-0"><span class="resume-date">2019 - Present</span></div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0"><a class="social-icon" onclick="window.open('http://gselingo.com')"
-                            href="#gselingo"><i class="fa fa-link"></i></a>&nbsp;GSE Lingo</h3>
-                        <div class="subheading mb-3"></div>
+                        <h3 class="mb-0"><a class="project-link" title="Visit website" onclick="window.open('http://gselingo.com')"
+                            href="#gselingo"><i class="fa fa-link"></i></a>GSE Lingo</h3>
                         <p>Bingo is a fun game of chance that anyone can play. The game is played on a scorecard that's made up of 25 squares.</p>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-white p-1 rounded-sm bg-success"> Live </span></div>
+                    <div class="flex-shrink-0"><span class="status-badge status-badge-live">Live</span></div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0"><a class="social-icon" onclick="window.open('http://firestreetpizza.azurewebsites.net')"
-                            href="#FireStreetPizza"><i class="fa fa-link"></i></a>&nbsp;FireStreetPizza</h3>
-                        <div class="subheading mb-3"></div>
+                        <h3 class="mb-0"><a class="project-link" title="Visit website" onclick="window.open('http://firestreetpizza.azurewebsites.net')"
+                            href="#FireStreetPizza"><i class="fa fa-link"></i></a>FireStreetPizza</h3>
                         <p>Realtime game for firestreet pizza resturaunt located at USA</p>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-white p-1 rounded-sm bg-success"> Live </span></div>
+                    <div class="flex-shrink-0"><span class="status-badge status-badge-live">Live</span></div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0"><a class="social-icon" onclick="window.open('https://app.zipclass.live')"
-                            href="#ZipClass"><i class="fa fa-link"></i></a>&nbsp;ZipClass</h3>
-                        <div class="subheading mb-3"></div>
+                        <h3 class="mb-0"><a class="project-link" title="Visit website" onclick="window.open('https://app.zipclass.live')"
+                            href="#ZipClass"><i class="fa fa-link"></i></a>ZipClass</h3>
                         <p>Zipclass is a platform that will empower instructors and bring their exercise routines, workouts, and classes to people wherever they are.</p>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-white p-1 rounded-sm bg-success"> Live </span></div>
+                    <div class="flex-shrink-0"><span class="status-badge status-badge-live">Live</span></div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0"><a class="social-icon" onclick="window.open('https://lms.learningupgrade.com')"
-                            href="#LearningUpgrade"><i class="fa fa-link"></i></a>&nbsp;Learning Upgrade</h3>
-                        <div class="subheading mb-3"></div>
+                        <h3 class="mb-0"><a class="project-link" title="Visit website" onclick="window.open('https://lms.learningupgrade.com')"
+                            href="#LearningUpgrade"><i class="fa fa-link"></i></a>Learning Upgrade</h3>
                         <p>Helping Learners Upskill in English, Math, and Job Skills.</p>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-white p-1 rounded-sm bg-success"> Live </span></div>
+                    <div class="flex-shrink-0"><span class="status-badge status-badge-live">Live</span></div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0"><a class="social-icon" onclick="window.open('https://visitgilgitbaltistan.gov.pk')"
-                            href="#VisitGilgit"><i class="fa fa-link"></i></a>&nbsp;Tourism Management System for Gilgit Baltistan</h3>
-                        <div class="subheading mb-3"></div>
+                        <h3 class="mb-0"><a class="project-link" title="Visit website" onclick="window.open('https://visitgilgitbaltistan.gov.pk')"
+                            href="#VisitGilgit"><i class="fa fa-link"></i></a>Tourism Management System for Gilgit Baltistan</h3>
                         <p>Gilgit-Baltistan (GB) is a very sparsely populated high-mountain area in the north of Pakistan. Its natural environment is usually described with superlatives – the longest glaciers outside of the polar region, home of the world’s second highest peak (K2) and four more eight-thousanders. GB is largely a high-mountain desert; geologically, it spreads over three high mountain systems: Himalaya, Karakorum and Hindukush. The society of GB is diverse in terms of language, religion and ethnicity.</p>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-white p-1 rounded-sm bg-success"> Live </span></div>
+                    <div class="flex-shrink-0"><span class="status-badge status-badge-live">Live</span></div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0"><a class="social-icon" onclick="window.open('https://wwwtags.info')"
-                                href="#WWWGaming"><i class="fa fa-link"></i></a>&nbsp;WWW Gaming</h3>
-                        <div class="subheading mb-3"></div>
+                        <h3 class="mb-0"><a class="project-link" title="Visit website" onclick="window.open('https://wwwtags.info')"
+                                href="#WWWGaming"><i class="fa fa-link"></i></a>WWW Gaming</h3>
                         <p>WWW Gaming is a gaming website providing in-game clans intel in different forms. Cloudflare
                             Access makes Admin Area highest secure area in site(Feel free to try DDOS/SQL
                             Injection).Discussion is must have thing for gaming site, this is where Flarum comes in
                             giving a user-friendly discussion forum.</p>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-white p-1 rounded-sm bg-success"> Live </span></div>
+                    <div class="flex-shrink-0"><span class="status-badge status-badge-live">Live</span></div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0">Al-Haram Dyeing</h3>
-                        <div class="subheading mb-3"></div>
+                        <h3 class="mb-0"><span class="project-link project-link-none" title="Desktop application, no public link"><i class="fas fa-desktop" aria-hidden="true"></i></span>Al-Haram Dyeing</h3>
                         <p>Al-Haram Dyeing software takes care of all the accounting needs. Deployed based on central
                             server makes it accessible on any PC inside the network, if you have the username & password
                             :)</p>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-white p-1 rounded-sm bg-success"> Live </span></div>
+                    <div class="flex-shrink-0"><span class="status-badge status-badge-live">Live</span></div>
                 </div>
                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
                     <div class="flex-grow-1">
-                        <h3 class="mb-0">Shifa Pharmacy</h3>
-                        <div class="subheading mb-3"></div>
+                        <h3 class="mb-0"><span class="project-link project-link-none" title="Desktop application, no public link"><i class="fas fa-desktop" aria-hidden="true"></i></span>Shifa Pharmacy</h3>
                         <p>A Windows Forms based Pharmacy management system, featuring POS(Barcode), QR Code based
                             Receipts(Anti Counterfeit), Role based authorization, Accounting Reports(Day Book, Ledgers,
                             Payable, Receivable).its intelligent system is able to give shortage notice for stock by
@@ -275,7 +262,7 @@
                             records across Discord Servers and emails. Currently holding more than 44k products already
                             added makes it a perfect Pharmacy management System.</p>
                     </div>
-                    <div class="flex-shrink-0"><span class="text-white p-1 rounded-sm bg-dark"> AUTOPILOT </span></div>
+                    <div class="flex-shrink-0"><span class="status-badge status-badge-autopilot">Autopilot</span></div>
                 </div>
             </div>
         </section>
