@@ -11264,6 +11264,17 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+/* Core expertise list (pre-rendered from data/experiences.txt) */
+.expertise-list {
+  columns: 3 16rem;
+  column-gap: 2rem;
+}
+
+.expertise-list li {
+  break-inside: avoid;
+  margin-bottom: 0.35rem;
+}
+
 /* ============================================
    ACCESSIBILITY
    ============================================ */
