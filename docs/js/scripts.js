@@ -474,8 +474,11 @@ function setupSearchFunctionality() {
 // Keyboard shortcuts for skills filtering
 function setupKeyboardShortcuts() {
     document.addEventListener('keydown', function(e) {
-        // Only activate when not typing in input
-        if (e.target.tagName === 'INPUT') return;
+        // Never hijack keys while the user is typing or using modifier combos (WCAG 2.1.4)
+        if (e.ctrlKey || e.metaKey || e.altKey) return;
+        const target = e.target;
+        const tag = target && target.tagName;
+        if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (target && target.isContentEditable)) return;
 
         const shortcuts = {
             '1': 'all',
@@ -489,7 +492,7 @@ function setupKeyboardShortcuts() {
         if (shortcuts[e.key]) {
             e.preventDefault();
             const category = shortcuts[e.key];
-            const button = document.querySelector(`[data-category="${category}"]`);
+            const button = document.querySelector(`.skill-filter-btn[data-category="${category}"]`);
             if (button) {
                 button.click();
                 // Visual feedback
@@ -501,7 +504,7 @@ function setupKeyboardShortcuts() {
         }
 
         // Press '/' to focus search
-        if (e.key === '/' || e.key === 's') {
+        if (e.key === '/') {
             e.preventDefault();
             const searchInput = document.getElementById('skillSearch');
             if (searchInput) {
