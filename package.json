@@ -6,7 +6,9 @@
   "license": "GPL-3.0",
   "type": "module",
   "scripts": {
-    "build": "node tools/build.mjs",
+    "prerender": "node scripts/prerender.mjs",
+    "prerender:check": "node scripts/prerender.mjs --check",
+    "build": "node scripts/prerender.mjs && node scripts/build.mjs",
     "serve": "npx --yes http-server docs -p 5501 -c-1"
   },
   "devDependencies": {

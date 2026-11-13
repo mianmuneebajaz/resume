@@ -1,9 +1,10 @@
 // Builds the deployed assets in docs/ from sources:
-//   src/css/styles.css  ->  docs/css/styles.css   (plus a Font Awesome subset, purged and minified)
+//   src/css/styles.css + src/css/custom.css + Font Awesome subset CSS
+//                       ->  docs/css/styles.css   (concatenated, purged and minified)
 //   Font Awesome fonts  ->  docs/webfonts/*.woff2 (only the glyphs the site uses)
 //
-// Run with `npm run build` after changing src/css/styles.css, docs/index.html
-// or any icon class in docs/js/*.js.
+// `npm run build` runs scripts/prerender.mjs first, then this script, so the
+// pre-rendered markup in docs/index.html is taken into account when purging.
 import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
 import { createRequire } from "node:module";
 import path from "node:path";
@@ -50,12 +51,17 @@ const iconCss = `
 .fa,.fas,.fab{-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:inline-block;font-style:normal;font-variant:normal;text-rendering:auto;line-height:1}
 .fa,.fas{font-family:"Font Awesome 5 Free";font-weight:900}
 .fab{font-family:"Font Awesome 5 Brands";font-weight:400}
+.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}
+.fa-ul>li{position:relative}
+.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}
 ${used.map((name) => `.fa-${name}:before{content:"\\${codepoints.get(name)}"}`).join("\n")}
 `;
 console.log(`icons: ${used.length} (${used.join(", ")})`);
 
 // ---- Stylesheet ---------------------------------------------------------------
-const source = (await readFile(path.join(root, "src", "css", "styles.css"), "utf8")) + iconCss;
+// Theme first, then site specific overrides, then icons (same order the old <link> tags used).
+const sources = await Promise.all(["styles.css", "custom.css"].map((f) => readFile(path.join(root, "src", "css", f), "utf8")));
+const source = sources.join("\n") + iconCss;
 const [purged] = await new PurgeCSS().purge({
   content: [{ raw: content, extension: "html" }],
   css: [{ raw: source }],
